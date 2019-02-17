@@ -11,4 +11,5 @@ public class SequenceDiagram {
     @SerializedName("class")
     private String className = "go.GraphLinksModel";
     private ArrayList<SequenceGroup> nodeDataArray = new ArrayList<>();
+    private ArrayList<Link> linkDataArray = new ArrayList<>();
 }
