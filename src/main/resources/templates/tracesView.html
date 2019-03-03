@@ -5,6 +5,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<p th:text="'Hello'" />
+Traces:
+
+<div th:each="trace : ${traces}">
+    Trace: <span th:text="${trace[0].traceId}">1</span>
+</div>
+
 </body>
 </html>
