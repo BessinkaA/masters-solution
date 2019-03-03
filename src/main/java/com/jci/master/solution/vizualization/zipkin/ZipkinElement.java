@@ -1,8 +1,6 @@
-package com.jci.master.solution.vizualization;
+package com.jci.master.solution.vizualization.zipkin;
 
 import lombok.*;
-
-import java.util.*;
 
 @Data
 public class ZipkinElement {
