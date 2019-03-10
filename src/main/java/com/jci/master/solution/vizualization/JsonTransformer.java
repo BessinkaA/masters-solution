@@ -12,16 +12,20 @@ import java.util.*;
 import java.util.stream.*;
 
 @NoArgsConstructor
-class JsonTransformer {
+public class JsonTransformer {
+    Gson gson = new Gson();
 
-    String transform() throws IOException {
+    public String transform() throws IOException {
 
         // TODO look at one more time
         URL url = getClass().getResource("/zipkin.json");
         String json = IOUtils.toString(url, StandardCharsets.UTF_8);
 
-        Gson gson = new Gson();
         ZipkinElement[] zipkinOutput = gson.fromJson(json, ZipkinElement[].class);
+        return transform(zipkinOutput);
+    }
+
+    public String transform(ZipkinElement[] zipkinOutput) throws IOException {
         List<String> serviceNames = Stream.of(zipkinOutput)
                                           .sorted(Comparator.comparing(ZipkinElement::getTimestamp))
                                           .map(x -> x.getLocalEndpoint().getServiceName())

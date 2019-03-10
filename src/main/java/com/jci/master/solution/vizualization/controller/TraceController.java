@@ -1,5 +1,6 @@
 package com.jci.master.solution.vizualization.controller;
 
+import com.jci.master.solution.vizualization.*;
 import com.jci.master.solution.vizualization.zipkin.*;
 import lombok.extern.slf4j.*;
 import org.springframework.stereotype.*;
@@ -31,13 +32,23 @@ public class TraceController {
     }
 
 
-    @GetMapping(value = "/trace/{traceId}")
-    public String getTraceById(@RequestParam("traceId") String traceId, Model model) {
-        log.info("Getting trace by ID: {}", traceId);
-        ZipkinElement[] traceById = zipkinService.getTraceById(traceId);
+    @ResponseBody
+    @GetMapping(value = "/trace/{traceId}", produces = "text/html")
+    public String getTraceById(@PathVariable("traceId") String traceId) throws Exception {
+        try {
+            log.info("Getting trace by ID: {}", traceId);
+            ZipkinElement[] traceById = zipkinService.getTraceById(traceId);
 
-        model.addAttribute("trace", traceById);
+            JsonTransformer jsonTransformer = new JsonTransformer();
+            String diagramJson = jsonTransformer.transform(traceById);
 
-        return "traceView";
+            DiagramGenerator diagramGenerator = new DiagramGenerator();
+            String diagramHtml = diagramGenerator.generate(diagramJson);
+
+            return diagramHtml;
+        } catch (Exception e) {
+            log.error("Request failed", e);
+            throw e;
+        }
     }
 }

@@ -8,7 +8,7 @@ import java.nio.charset.*;
 
 public class DiagramGenerator {
 
-    void generate(String diagramJson) throws IOException {
+    public String generate(String diagramJson) throws IOException {
 
         URL url = getClass().getResource("/sequence.html");
         String diagramTemplate = IOUtils.toString(url, StandardCharsets.UTF_8);
@@ -18,5 +18,6 @@ public class DiagramGenerator {
         File file = new File("src/main/resources/diagram.html");
         FileUtils.write(file, diagramReplaced, StandardCharsets.UTF_8);
 
+        return diagramReplaced;
     }
 }
