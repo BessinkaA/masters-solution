@@ -11,7 +11,7 @@ public class Application {
     }
 
 //    public static void main(String[] args) throws IOException {
-//        JsonTransformer jsonTransformer = new JsonTransformer();
+//        SequenceJsonTransformer jsonTransformer = new SequenceJsonTransformer();
 //        String diagramJson = jsonTransformer.transform();
 //
 //        DiagramGenerator diagramGenerator = new DiagramGenerator();

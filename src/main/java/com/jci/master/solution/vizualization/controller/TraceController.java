@@ -20,11 +20,11 @@ public class TraceController {
     public String getTraces(Model model) {
         log.info("Getting all traces...");
 
-        try{
+        try {
             ZipkinElement[][] traces = zipkinService.getTraces();
             log.info("Traces: {}", traces);
             model.addAttribute("traces", traces);
-        }catch (Exception e){
+        } catch (Exception e) {
             log.error("Request failed", e);
         }
 
@@ -33,17 +33,37 @@ public class TraceController {
 
 
     @ResponseBody
-    @GetMapping(value = "/trace/{traceId}", produces = "text/html")
-    public String getTraceById(@PathVariable("traceId") String traceId) throws Exception {
+    @GetMapping(value = "/trace/sequence/{traceId}", produces = "text/html")
+    public String getSequenceDiagram(@PathVariable("traceId") String traceId) throws Exception {
         try {
             log.info("Getting trace by ID: {}", traceId);
             ZipkinElement[] traceById = zipkinService.getTraceById(traceId);
 
-            JsonTransformer jsonTransformer = new JsonTransformer();
-            String diagramJson = jsonTransformer.transform(traceById);
+            SequenceJsonTransformer sequenceJsonTransformer = new SequenceJsonTransformer();
+            String diagramJson = sequenceJsonTransformer.transform(traceById);
 
             DiagramGenerator diagramGenerator = new DiagramGenerator();
-            String diagramHtml = diagramGenerator.generate(diagramJson);
+            String diagramHtml = diagramGenerator.generate(diagramJson, "/sequence.html");
+
+            return diagramHtml;
+        } catch (Exception e) {
+            log.error("Request failed", e);
+            throw e;
+        }
+    }
+
+    @ResponseBody
+    @GetMapping(value = "/trace/flow/{traceId}", produces = "text/html")
+    public String getFlowDiagram(@PathVariable("traceId") String traceId) throws Exception {
+        try {
+            log.info("Getting trace by ID: {}", traceId);
+            ZipkinElement[] traceById = zipkinService.getTraceById(traceId);
+
+            FlowJsonTransformer flowJsonTransformer = new FlowJsonTransformer();
+            String diagramJson = flowJsonTransformer.transform(traceById);
+
+            DiagramGenerator diagramGenerator = new DiagramGenerator();
+            String diagramHtml = diagramGenerator.generate(diagramJson, "/flow.html");
 
             return diagramHtml;
         } catch (Exception e) {

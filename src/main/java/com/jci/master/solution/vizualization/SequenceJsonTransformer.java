@@ -12,7 +12,7 @@ import java.util.*;
 import java.util.stream.*;
 
 @NoArgsConstructor
-public class JsonTransformer {
+public class SequenceJsonTransformer {
     Gson gson = new Gson();
 
     public String transform() throws IOException {

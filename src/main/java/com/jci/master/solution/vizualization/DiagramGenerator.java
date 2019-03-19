@@ -8,9 +8,9 @@ import java.nio.charset.*;
 
 public class DiagramGenerator {
 
-    public String generate(String diagramJson) throws IOException {
+    public String generate(String diagramJson, String diagramType) throws IOException {
 
-        URL url = getClass().getResource("/sequence.html");
+        URL url = getClass().getResource(diagramType);
         String diagramTemplate = IOUtils.toString(url, StandardCharsets.UTF_8);
 
         String diagramReplaced = diagramTemplate.replace("${DIAGRAM_JSON}", diagramJson);
