@@ -1,269 +1,307 @@
 [
-  {
-    "traceId": "ba8ebc54fb94c368",
-    "parentId": "ba8ebc54fb94c368",
-    "id": "00318d8a7766c500",
-    "kind": "CLIENT",
-    "name": "get",
-    "timestamp": 1546947170263031,
-    "duration": 138264,
-    "localEndpoint": {
-      "serviceName": "temperature-service",
-      "ipv4": "192.168.1.140"
+  [
+    {
+      "traceId": "bec588dd9b740d51",
+      "parentId": "55f255e7392e8e0f",
+      "id": "446a47b3f89844f5",
+      "kind": "SERVER",
+      "name": "get /{sensorid}",
+      "timestamp": 1553361693029695,
+      "duration": 69285,
+      "localEndpoint": {
+        "serviceName": "asset-service",
+        "ipv4": "192.168.1.94"
+      },
+      "remoteEndpoint": {
+        "ipv4": "127.0.0.1",
+        "port": 59074
+      },
+      "tags": {
+        "http.method": "GET",
+        "http.path": "/d4f47d54-c49d-4570-84fa-d6fcbdec02f1",
+        "mvc.controller.class": "AssetController",
+        "mvc.controller.method": "getEmergencyContacts"
+      },
+      "shared": true
     },
-    "tags": {
-      "http.method": "GET",
-      "http.path": "/d4f47d54-c49d-4570-84fa-d6fcbdec02f1"
+    {
+      "traceId": "bec588dd9b740d51",
+      "parentId": "55f255e7392e8e0f",
+      "id": "446a47b3f89844f5",
+      "kind": "CLIENT",
+      "name": "get",
+      "timestamp": 1553361692960288,
+      "duration": 138076,
+      "localEndpoint": {
+        "serviceName": "temperature-service",
+        "ipv4": "192.168.1.94"
+      },
+      "tags": {
+        "http.method": "GET",
+        "http.path": "/d4f47d54-c49d-4570-84fa-d6fcbdec02f1"
+      }
+    },
+    {
+      "traceId": "bec588dd9b740d51",
+      "parentId": "aac3c1610a8831bf",
+      "id": "f3136e38c2882686",
+      "kind": "CLIENT",
+      "name": "get",
+      "timestamp": 1553361693869482,
+      "duration": 235399,
+      "localEndpoint": {
+        "serviceName": "fire-service",
+        "ipv4": "192.168.1.94"
+      },
+      "tags": {
+        "http.method": "GET",
+        "http.path": "/456"
+      }
+    },
+    {
+      "traceId": "bec588dd9b740d51",
+      "parentId": "aac3c1610a8831bf",
+      "id": "c544ef9061eb640a",
+      "kind": "CLIENT",
+      "name": "get",
+      "timestamp": 1553361694124104,
+      "duration": 150416,
+      "localEndpoint": {
+        "serviceName": "fire-service",
+        "ipv4": "192.168.1.94"
+      },
+      "tags": {
+        "http.method": "GET",
+        "http.path": "/456"
+      }
+    },
+    {
+      "traceId": "bec588dd9b740d51",
+      "parentId": "aac3c1610a8831bf",
+      "id": "4e4f9a992a52066b",
+      "kind": "CLIENT",
+      "name": "post",
+      "timestamp": 1553361694301106,
+      "duration": 234537,
+      "localEndpoint": {
+        "serviceName": "fire-service",
+        "ipv4": "192.168.1.94"
+      },
+      "tags": {
+        "http.method": "POST",
+        "http.path": ""
+      }
+    },
+    {
+      "traceId": "bec588dd9b740d51",
+      "parentId": "d55638163e58fbb9",
+      "id": "aac3c1610a8831bf",
+      "kind": "SERVER",
+      "name": "post /",
+      "timestamp": 1553361693688364,
+      "duration": 856144,
+      "localEndpoint": {
+        "serviceName": "fire-service",
+        "ipv4": "192.168.1.94"
+      },
+      "remoteEndpoint": {
+        "ipv4": "127.0.0.1",
+        "port": 59077
+      },
+      "tags": {
+        "http.method": "POST",
+        "http.path": "/",
+        "mvc.controller.class": "FireServiceController",
+        "mvc.controller.method": "receiveFireEvent"
+      },
+      "shared": true
+    },
+    {
+      "traceId": "bec588dd9b740d51",
+      "parentId": "55f255e7392e8e0f",
+      "id": "d55638163e58fbb9",
+      "kind": "CLIENT",
+      "name": "post",
+      "timestamp": 1553361693120104,
+      "duration": 1446056,
+      "localEndpoint": {
+        "serviceName": "temperature-service",
+        "ipv4": "192.168.1.94"
+      },
+      "tags": {
+        "http.method": "POST",
+        "http.path": ""
+      }
+    },
+    {
+      "traceId": "bec588dd9b740d51",
+      "parentId": "bec588dd9b740d51",
+      "id": "55f255e7392e8e0f",
+      "kind": "SERVER",
+      "name": "post /",
+      "timestamp": 1553361692830762,
+      "duration": 1747631,
+      "localEndpoint": {
+        "serviceName": "temperature-service",
+        "ipv4": "192.168.1.94"
+      },
+      "remoteEndpoint": {
+        "ipv4": "127.0.0.1",
+        "port": 59073
+      },
+      "tags": {
+        "http.method": "POST",
+        "http.path": "/",
+        "mvc.controller.class": "TemperatureController",
+        "mvc.controller.method": "receiveTemperatureData"
+      },
+      "shared": true
+    },
+    {
+      "traceId": "bec588dd9b740d51",
+      "parentId": "aac3c1610a8831bf",
+      "id": "f3136e38c2882686",
+      "kind": "SERVER",
+      "name": "get /{roomid}",
+      "timestamp": 1553361693997916,
+      "duration": 111014,
+      "localEndpoint": {
+        "serviceName": "occupancy-service",
+        "ipv4": "192.168.1.94"
+      },
+      "remoteEndpoint": {
+        "ipv4": "127.0.0.1",
+        "port": 59078
+      },
+      "tags": {
+        "http.method": "GET",
+        "http.path": "/456",
+        "mvc.controller.class": "OccupancyController",
+        "mvc.controller.method": "getEmergencyContacts"
+      },
+      "shared": true
+    },
+    {
+      "traceId": "bec588dd9b740d51",
+      "parentId": "bec588dd9b740d51",
+      "id": "55f255e7392e8e0f",
+      "kind": "CLIENT",
+      "name": "post",
+      "timestamp": 1553361692720531,
+      "duration": 1857830,
+      "localEndpoint": {
+        "serviceName": "gateway-service",
+        "ipv4": "192.168.1.94"
+      },
+      "tags": {
+        "http.method": "POST",
+        "http.path": "/"
+      }
+    },
+    {
+      "traceId": "bec588dd9b740d51",
+      "id": "bec588dd9b740d51",
+      "kind": "SERVER",
+      "name": "post",
+      "timestamp": 1553361692641857,
+      "duration": 1942553,
+      "localEndpoint": {
+        "serviceName": "gateway-service",
+        "ipv4": "192.168.1.94"
+      },
+      "tags": {
+        "http.method": "POST",
+        "http.path": "/temperature"
+      }
+    },
+    {
+      "traceId": "bec588dd9b740d51",
+      "parentId": "d55638163e58fbb9",
+      "id": "aac3c1610a8831bf",
+      "kind": "CLIENT",
+      "name": "post",
+      "timestamp": 1553361693489387,
+      "duration": 1059069,
+      "localEndpoint": {
+        "serviceName": "climate-control-service",
+        "ipv4": "192.168.1.94"
+      },
+      "tags": {
+        "http.method": "POST",
+        "http.path": ""
+      }
+    },
+    {
+      "traceId": "bec588dd9b740d51",
+      "parentId": "55f255e7392e8e0f",
+      "id": "d55638163e58fbb9",
+      "kind": "SERVER",
+      "name": "post /",
+      "timestamp": 1553361693304363,
+      "duration": 1260055,
+      "localEndpoint": {
+        "serviceName": "climate-control-service",
+        "ipv4": "192.168.1.94"
+      },
+      "remoteEndpoint": {
+        "ipv4": "127.0.0.1",
+        "port": 59075
+      },
+      "tags": {
+        "http.method": "POST",
+        "http.path": "/",
+        "mvc.controller.class": "ClimateController",
+        "mvc.controller.method": "create"
+      },
+      "shared": true
+    },
+    {
+      "traceId": "bec588dd9b740d51",
+      "parentId": "aac3c1610a8831bf",
+      "id": "4e4f9a992a52066b",
+      "kind": "SERVER",
+      "name": "post /",
+      "timestamp": 1553361694383546,
+      "duration": 146792,
+      "localEndpoint": {
+        "serviceName": "alert-service",
+        "ipv4": "192.168.1.94"
+      },
+      "remoteEndpoint": {
+        "ipv4": "127.0.0.1",
+        "port": 59081
+      },
+      "tags": {
+        "http.method": "POST",
+        "http.path": "/",
+        "mvc.controller.class": "AlertController",
+        "mvc.controller.method": "recieveAlert"
+      },
+      "shared": true
+    },
+    {
+      "traceId": "bec588dd9b740d51",
+      "parentId": "aac3c1610a8831bf",
+      "id": "c544ef9061eb640a",
+      "kind": "SERVER",
+      "name": "get /{roomid}",
+      "timestamp": 1553361694197624,
+      "duration": 80770,
+      "localEndpoint": {
+        "serviceName": "contact-service",
+        "ipv4": "192.168.1.94"
+      },
+      "remoteEndpoint": {
+        "ipv4": "127.0.0.1",
+        "port": 59080
+      },
+      "tags": {
+        "http.method": "GET",
+        "http.path": "/456",
+        "mvc.controller.class": "ContactController",
+        "mvc.controller.method": "getEmergencyContacts"
+      },
+      "shared": true
     }
-  },
-  {
-    "traceId": "ba8ebc54fb94c368",
-    "parentId": "ba8ebc54fb94c368",
-    "id": "00318d8a7766c500",
-    "kind": "SERVER",
-    "name": "get /{sensorid}",
-    "timestamp": 1546947170332728,
-    "duration": 69290,
-    "localEndpoint": {
-      "serviceName": "asset-service",
-      "ipv4": "192.168.1.140"
-    },
-    "remoteEndpoint": {
-      "ipv4": "127.0.0.1",
-      "port": 49674
-    },
-    "tags": {
-      "http.method": "GET",
-      "http.path": "/d4f47d54-c49d-4570-84fa-d6fcbdec02f1",
-      "mvc.controller.class": "AssetController",
-      "mvc.controller.method": "getEmergencyContacts"
-    },
-    "shared": true
-  },
-  {
-    "traceId": "ba8ebc54fb94c368",
-    "parentId": "77c284c636157d85",
-    "id": "a1af12977093615a",
-    "kind": "CLIENT",
-    "name": "get",
-    "timestamp": 1546947170739199,
-    "duration": 130139,
-    "localEndpoint": {
-      "serviceName": "fire-service",
-      "ipv4": "192.168.1.140"
-    },
-    "tags": {
-      "http.method": "GET",
-      "http.path": "/987"
-    }
-  },
-  {
-    "traceId": "ba8ebc54fb94c368",
-    "parentId": "77c284c636157d85",
-    "id": "5563f7ff52723556",
-    "kind": "CLIENT",
-    "name": "get",
-    "timestamp": 1546947170877102,
-    "duration": 138098,
-    "localEndpoint": {
-      "serviceName": "fire-service",
-      "ipv4": "192.168.1.140"
-    },
-    "tags": {
-      "http.method": "GET",
-      "http.path": "/d4f47d54-c49d-4570-84fa-d6fcbdec02f1"
-    }
-  },
-  {
-    "traceId": "ba8ebc54fb94c368",
-    "parentId": "77c284c636157d85",
-    "id": "4f7c2bfd26aa5746",
-    "kind": "CLIENT",
-    "name": "post",
-    "timestamp": 1546947171034131,
-    "duration": 186286,
-    "localEndpoint": {
-      "serviceName": "fire-service",
-      "ipv4": "192.168.1.140"
-    },
-    "tags": {
-      "http.method": "POST",
-      "http.path": ""
-    }
-  },
-  {
-    "traceId": "ba8ebc54fb94c368",
-    "parentId": "ce1f40e8d04928bc",
-    "id": "77c284c636157d85",
-    "kind": "SERVER",
-    "name": "post /",
-    "timestamp": 1546947170651299,
-    "duration": 576817,
-    "localEndpoint": {
-      "serviceName": "fire-service",
-      "ipv4": "192.168.1.140"
-    },
-    "remoteEndpoint": {
-      "ipv4": "127.0.0.1",
-      "port": 49676
-    },
-    "tags": {
-      "http.method": "POST",
-      "http.path": "/",
-      "mvc.controller.class": "FireServiceController",
-      "mvc.controller.method": "receiveFireEvent"
-    },
-    "shared": true
-  },
-  {
-    "traceId": "ba8ebc54fb94c368",
-    "parentId": "77c284c636157d85",
-    "id": "a1af12977093615a",
-    "kind": "SERVER",
-    "name": "get /{roomid}",
-    "timestamp": 1546947170801786,
-    "duration": 68230,
-    "localEndpoint": {
-      "serviceName": "occupancy-service",
-      "ipv4": "192.168.1.140"
-    },
-    "remoteEndpoint": {
-      "ipv4": "127.0.0.1",
-      "port": 49677
-    },
-    "tags": {
-      "http.method": "GET",
-      "http.path": "/987",
-      "mvc.controller.class": "OccupancyController",
-      "mvc.controller.method": "getEmergencyContacts"
-    },
-    "shared": true
-  },
-  {
-    "traceId": "ba8ebc54fb94c368",
-    "parentId": "77c284c636157d85",
-    "id": "5563f7ff52723556",
-    "kind": "SERVER",
-    "name": "get /{sensorid}",
-    "timestamp": 1546947170941890,
-    "duration": 76952,
-    "localEndpoint": {
-      "serviceName": "contact-service",
-      "ipv4": "192.168.1.140"
-    },
-    "remoteEndpoint": {
-      "ipv4": "127.0.0.1",
-      "port": 49678
-    },
-    "tags": {
-      "http.method": "GET",
-      "http.path": "/d4f47d54-c49d-4570-84fa-d6fcbdec02f1",
-      "mvc.controller.class": "ContactController",
-      "mvc.controller.method": "getEmergencyContacts"
-    },
-    "shared": true
-  },
-  {
-    "traceId": "ba8ebc54fb94c368",
-    "parentId": "ba8ebc54fb94c368",
-    "id": "ce1f40e8d04928bc",
-    "kind": "CLIENT",
-    "name": "post",
-    "timestamp": 1546947170422091,
-    "duration": 825026,
-    "localEndpoint": {
-      "serviceName": "temperature-service",
-      "ipv4": "192.168.1.140"
-    },
-    "tags": {
-      "http.method": "POST",
-      "http.path": ""
-    }
-  },
-  {
-    "traceId": "ba8ebc54fb94c368",
-    "id": "ba8ebc54fb94c368",
-    "kind": "SERVER",
-    "name": "post /",
-    "timestamp": 1546947170142672,
-    "duration": 1117237,
-    "localEndpoint": {
-      "serviceName": "temperature-service",
-      "ipv4": "192.168.1.140"
-    },
-    "remoteEndpoint": {
-      "ipv6": "::1"
-    },
-    "tags": {
-      "http.method": "POST",
-      "http.path": "/",
-      "mvc.controller.class": "TemperatureController",
-      "mvc.controller.method": "receiveTemperatureData"
-    }
-  },
-  {
-    "traceId": "ba8ebc54fb94c368",
-    "parentId": "ce1f40e8d04928bc",
-    "id": "77c284c636157d85",
-    "kind": "CLIENT",
-    "name": "post",
-    "timestamp": 1546947170590210,
-    "duration": 642532,
-    "localEndpoint": {
-      "serviceName": "climate-control-service",
-      "ipv4": "192.168.1.140"
-    },
-    "tags": {
-      "http.method": "POST",
-      "http.path": ""
-    }
-  },
-  {
-    "traceId": "ba8ebc54fb94c368",
-    "parentId": "ba8ebc54fb94c368",
-    "id": "ce1f40e8d04928bc",
-    "kind": "SERVER",
-    "name": "post /",
-    "timestamp": 1546947170475588,
-    "duration": 768169,
-    "localEndpoint": {
-      "serviceName": "climate-control-service",
-      "ipv4": "192.168.1.140"
-    },
-    "remoteEndpoint": {
-      "ipv4": "127.0.0.1",
-      "port": 49675
-    },
-    "tags": {
-      "http.method": "POST",
-      "http.path": "/",
-      "mvc.controller.class": "ClimateController",
-      "mvc.controller.method": "create"
-    },
-    "shared": true
-  },
-  {
-    "traceId": "ba8ebc54fb94c368",
-    "parentId": "77c284c636157d85",
-    "id": "4f7c2bfd26aa5746",
-    "kind": "SERVER",
-    "name": "post /",
-    "timestamp": 1546947171096659,
-    "duration": 119161,
-    "localEndpoint": {
-      "serviceName": "alert-service",
-      "ipv4": "192.168.1.140"
-    },
-    "remoteEndpoint": {
-      "ipv4": "127.0.0.1",
-      "port": 49680
-    },
-    "tags": {
-      "http.method": "POST",
-      "http.path": "/",
-      "mvc.controller.class": "AlertController",
-      "mvc.controller.method": "recieveAlert"
-    },
-    "shared": true
-  }
+  ]
 ]

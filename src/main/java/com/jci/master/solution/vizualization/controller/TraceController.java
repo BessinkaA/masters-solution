@@ -71,4 +71,24 @@ public class TraceController {
             throw e;
         }
     }
+
+    @ResponseBody
+    @GetMapping(value = "/trace/communication/{traceId}", produces = "text/html")
+    public String getCommunicationDiagram(@PathVariable("traceId") String traceId) throws Exception {
+        try {
+            log.info("Getting trace by ID: {}", traceId);
+            ZipkinElement[] traceById = zipkinService.getTraceById(traceId);
+
+            FlowJsonTransformer flowJsonTransformer = new FlowJsonTransformer();
+            String diagramJson = flowJsonTransformer.transform(traceById);
+
+            DiagramGenerator diagramGenerator = new DiagramGenerator();
+            String diagramHtml = diagramGenerator.generate(diagramJson, "/communication.html");
+
+            return diagramHtml;
+        } catch (Exception e) {
+            log.error("Request failed", e);
+            throw e;
+        }
+    }
 }

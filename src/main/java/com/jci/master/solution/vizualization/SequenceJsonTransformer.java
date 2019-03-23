@@ -15,9 +15,9 @@ import java.util.stream.*;
 public class SequenceJsonTransformer {
     Gson gson = new Gson();
 
+    @Deprecated
     public String transform() throws IOException {
 
-        // TODO look at one more time
         URL url = getClass().getResource("/zipkin.json");
         String json = IOUtils.toString(url, StandardCharsets.UTF_8);
 
@@ -43,7 +43,7 @@ public class SequenceJsonTransformer {
             SequenceGroup sequenceGroup = new SequenceGroup();
             sequenceGroup.setKey(serviceName);
             sequenceGroup.setText(serviceName);
-            sequenceGroup.setDuration(9);
+            sequenceGroup.setDuration(15);
             sequenceGroup.setIsGroup(true);
             int x = i * 150;
             sequenceGroup.setLoc(x + " 0");
@@ -51,6 +51,48 @@ public class SequenceJsonTransformer {
             sequenceDiagram.getNodeDataArray().add(sequenceGroup);
         }
 
+        addServerToClientLinks(zipkinElementsByTimestamp, sequenceDiagram);
+        addClientToServerLinks(zipkinElementsByTimestamp, sequenceDiagram);
+        addSequenceSpans(zipkinElementsByTimestamp, sequenceDiagram);
+
+        try (Writer writer = new FileWriter("src/main/resources/sequence.json")) {
+            gson.toJson(sequenceDiagram, writer);
+        }
+        return gson.toJson(sequenceDiagram);
+    }
+
+    private void addSequenceSpans(List<ZipkinElement> zipkinElementsByTimestamp, SequenceDiagram sequenceDiagram) {
+
+
+    }
+
+    private void addClientToServerLinks(List<ZipkinElement> zipkinElementsByTimestamp, SequenceDiagram sequenceDiagram) {
+        for (int i = 0; i < zipkinElementsByTimestamp.size(); i++) {
+            ZipkinElement element = zipkinElementsByTimestamp.get(i);
+
+            if (element.getKind().equals("CLIENT")) {
+                continue;
+            }
+
+            ZipkinElement clientElement = zipkinElementsByTimestamp.stream()
+                                                                   .filter(x -> x.getKind().equals("CLIENT"))
+                                                                   .filter(x -> x.getId().equals(element.getId()))
+                                                                   .findAny()
+                                                                   .orElse(null);
+
+
+            if(clientElement != null){
+                Link link = new Link();
+                link.setFrom(element.getLocalEndpoint().getServiceName());
+                link.setTo(clientElement.getLocalEndpoint().getServiceName());
+                link.setTime(i+1);
+
+                sequenceDiagram.getLinkDataArray().add(link);
+            }
+        }
+    }
+
+    public void addServerToClientLinks(List<ZipkinElement> zipkinElementsByTimestamp, SequenceDiagram sequenceDiagram) {
         for (int i = 0; i < zipkinElementsByTimestamp.size(); i++) {
             ZipkinElement element = zipkinElementsByTimestamp.get(i);
 
@@ -67,16 +109,11 @@ public class SequenceJsonTransformer {
             Link link = new Link();
             link.setFrom(element.getLocalEndpoint().getServiceName());
             link.setTo(serverElement.getLocalEndpoint().getServiceName());
-            link.setText("Call to a service");
+            link.setText(serverElement.getName());
             link.setTime(i+1);
 
             sequenceDiagram.getLinkDataArray().add(link);
         }
-
-        try (Writer writer = new FileWriter("src/main/resources/sequence.json")) {
-            gson.toJson(sequenceDiagram, writer);
-        }
-        return gson.toJson(sequenceDiagram);
     }
 }
 

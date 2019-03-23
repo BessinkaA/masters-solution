@@ -7,4 +7,5 @@ public class FlowGroup {
 
     private String key;
     private String text;
+    private String category = "Source";
 }
