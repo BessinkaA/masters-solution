@@ -51,9 +51,7 @@ public class SequenceJsonTransformer {
             sequenceDiagram.getNodeDataArray().add(sequenceGroup);
         }
 
-        addServerToClientLinks(zipkinElementsByTimestamp, sequenceDiagram);
-        addClientToServerLinks(zipkinElementsByTimestamp, sequenceDiagram);
-        addSequenceSpans(zipkinElementsByTimestamp, sequenceDiagram);
+        processData(zipkinElementsByTimestamp, sequenceDiagram);
 
         try (Writer writer = new FileWriter("src/main/resources/sequence.json")) {
             gson.toJson(sequenceDiagram, writer);
@@ -61,59 +59,56 @@ public class SequenceJsonTransformer {
         return gson.toJson(sequenceDiagram);
     }
 
-    private void addSequenceSpans(List<ZipkinElement> zipkinElementsByTimestamp, SequenceDiagram sequenceDiagram) {
+    private void processData(List<ZipkinElement> zipkinElementsByTimestamp, SequenceDiagram sequenceDiagram) {
 
+        // find the first element of a trace (root element)
+        ZipkinElement rootElement = zipkinElementsByTimestamp.stream()
+                                                             .filter(x -> x.getParentId() == null)
+                                                             .findAny()
+                                                             .get();
+        processElement(zipkinElementsByTimestamp, rootElement, 1, sequenceDiagram);
 
     }
 
-    private void addClientToServerLinks(List<ZipkinElement> zipkinElementsByTimestamp, SequenceDiagram sequenceDiagram) {
-        for (int i = 0; i < zipkinElementsByTimestamp.size(); i++) {
-            ZipkinElement element = zipkinElementsByTimestamp.get(i);
+    private int processElement(List<ZipkinElement> zipkinElementsByTimestamp, ZipkinElement element, int time, SequenceDiagram sequenceDiagram) {
+        // find if this element has any child elements
+        List<ZipkinElement> childElements = zipkinElementsByTimestamp.stream()
+                                                                     .filter(x -> Objects.equals(x.getParentId(), element
+                                                                             .getId()))
+                                                                     .filter(x -> x.getKind().equals("SERVER"))
+                                                                     .collect(Collectors.toList());
 
-            if (element.getKind().equals("CLIENT")) {
-                continue;
-            }
-
-            ZipkinElement clientElement = zipkinElementsByTimestamp.stream()
-                                                                   .filter(x -> x.getKind().equals("CLIENT"))
-                                                                   .filter(x -> x.getId().equals(element.getId()))
-                                                                   .findAny()
-                                                                   .orElse(null);
-
-
-            if(clientElement != null){
-                Link link = new Link();
-                link.setFrom(element.getLocalEndpoint().getServiceName());
-                link.setTo(clientElement.getLocalEndpoint().getServiceName());
-                link.setTime(i+1);
-
-                sequenceDiagram.getLinkDataArray().add(link);
-            }
+        for (ZipkinElement childElement : childElements) {
+            addClientToServerLink(childElement, sequenceDiagram, time + 1);
+            time = processElement(zipkinElementsByTimestamp, childElement, 1, sequenceDiagram);
+            addServerToClientLink(childElement, sequenceDiagram, time);
         }
+
+        return time;
     }
 
-    public void addServerToClientLinks(List<ZipkinElement> zipkinElementsByTimestamp, SequenceDiagram sequenceDiagram) {
-        for (int i = 0; i < zipkinElementsByTimestamp.size(); i++) {
-            ZipkinElement element = zipkinElementsByTimestamp.get(i);
+    private void addServerToClientLink(ZipkinElement clientElement, SequenceDiagram sequenceDiagram, int time) {
 
-            if (element.getKind().equals("SERVER")) {
-                continue;
-            }
-
-            ZipkinElement serverElement = zipkinElementsByTimestamp.stream()
-                                                              .filter(x -> x.getKind().equals("SERVER"))
-                                                              .filter(x -> x.getId().equals(element.getId()))
-                                                              .findAny()
-                                                              .get();
-
+        if (clientElement != null) {
             Link link = new Link();
-            link.setFrom(element.getLocalEndpoint().getServiceName());
-            link.setTo(serverElement.getLocalEndpoint().getServiceName());
-            link.setText(serverElement.getName());
-            link.setTime(i+1);
+            link.setFrom(clientElement.getLocalEndpoint().getServiceName());
+            link.setTo(clientElement.getLocalEndpoint().getServiceName());
+            link.setTime(time);
 
             sequenceDiagram.getLinkDataArray().add(link);
         }
+
+    }
+
+    public void addClientToServerLink(ZipkinElement serverElement, SequenceDiagram sequenceDiagram, int time) {
+
+        Link link = new Link();
+        link.setFrom(serverElement.getLocalEndpoint().getServiceName());
+        link.setTo(serverElement.getLocalEndpoint().getServiceName());
+        link.setText(serverElement.getName());
+        link.setTime(time);
+
+        sequenceDiagram.getLinkDataArray().add(link);
     }
 }
 
