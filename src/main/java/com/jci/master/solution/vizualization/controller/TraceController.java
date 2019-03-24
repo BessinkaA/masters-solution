@@ -79,8 +79,8 @@ public class TraceController {
             log.info("Getting trace by ID: {}", traceId);
             ZipkinElement[] traceById = zipkinService.getTraceById(traceId);
 
-            FlowJsonTransformer flowJsonTransformer = new FlowJsonTransformer();
-            String diagramJson = flowJsonTransformer.transform(traceById);
+            CommunicationJsonTransformer communicationTransformer = new CommunicationJsonTransformer();
+            String diagramJson = communicationTransformer.transform(traceById);
 
             DiagramGenerator diagramGenerator = new DiagramGenerator();
             String diagramHtml = diagramGenerator.generate(diagramJson, "/communication.html");

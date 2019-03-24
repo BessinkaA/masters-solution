@@ -9,7 +9,7 @@ import java.util.*;
 import java.util.stream.*;
 
 @NoArgsConstructor
-public class FlowJsonTransformer {
+public class CommunicationJsonTransformer {
     Gson gson = new Gson();
 
     public String transform(ZipkinElement[] zipkinOutput) throws IOException {
@@ -23,14 +23,19 @@ public class FlowJsonTransformer {
                                                               .sorted(Comparator.comparing(ZipkinElement::getTimestamp))
                                                               .collect(Collectors.toList());
 
-        FlowDiagram flowDiagram = new FlowDiagram();
+        // create a map to map service name to group key (int)
+        Map<String, Integer> serviceKeys = new HashMap<>();
 
-        for (String serviceName : serviceNames) {
-            FlowGroup flowGroup = new FlowGroup();
-            flowGroup.setKey(serviceName);
-            flowGroup.setText(serviceName);
+        CommunicationDiagram communicationDiagram = new CommunicationDiagram();
 
-            flowDiagram.getNodeDataArray().add(flowGroup);
+        for (int i = 0; i < serviceNames.size(); i++) {
+            String serviceName = serviceNames.get(i);
+            serviceKeys.put(serviceName, i + 1);
+            CommunicationGroup communicationGroup = new CommunicationGroup();
+            communicationGroup.setKey(i + 1);
+            communicationGroup.setText(serviceName);
+
+            communicationDiagram.getNodeDataArray().add(communicationGroup);
         }
 
         for (int i = 0; i < zipkinElementsByTimestamp.size(); i++) {
@@ -49,14 +54,15 @@ public class FlowJsonTransformer {
             Link link = new Link();
             link.setFrom(element.getLocalEndpoint().getServiceName());
             link.setTo(serverElement.getLocalEndpoint().getServiceName());
+            // adding a custom text
+            link.setText("Call to a service");
 
-            flowDiagram.getLinkDataArray().add(link);
+            communicationDiagram.getLinkDataArray().add(link);
         }
 
-        try (Writer writer = new FileWriter("src/main/resources/flow.json")) {
-            gson.toJson(flowDiagram, writer);
+        try (Writer writer = new FileWriter("src/main/resources/communication.json")) {
+            gson.toJson(communicationDiagram, writer);
         }
-        return gson.toJson(flowDiagram);
+        return gson.toJson(communicationDiagram);
     }
 }
-
