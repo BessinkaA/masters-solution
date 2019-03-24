@@ -39,23 +39,25 @@ public class CommunicationJsonTransformer {
         }
 
         for (int i = 0; i < zipkinElementsByTimestamp.size(); i++) {
-            ZipkinElement element = zipkinElementsByTimestamp.get(i);
+            ZipkinElement clientElement = zipkinElementsByTimestamp.get(i);
 
-            if (element.getKind().equals("SERVER")) {
+            if (clientElement.getKind().equals("SERVER")) {
                 continue;
             }
 
             ZipkinElement serverElement = zipkinElementsByTimestamp.stream()
                                                                    .filter(x -> x.getKind().equals("SERVER"))
-                                                                   .filter(x -> x.getId().equals(element.getId()))
+                                                                   .filter(x -> x.getId().equals(clientElement.getId()))
                                                                    .findAny()
                                                                    .get();
 
-            Link link = new Link();
-            link.setFrom(element.getLocalEndpoint().getServiceName());
-            link.setTo(serverElement.getLocalEndpoint().getServiceName());
+            CommunicationLink link = new CommunicationLink();
+
+            link.setFrom(serviceKeys.get(clientElement.getLocalEndpoint().getServiceName()));
+            link.setTo(serviceKeys.get(serverElement.getLocalEndpoint().getServiceName()));
             // adding a custom text
-            link.setText("Call to a service");
+            link.setText(serverElement.getTags().get("mvc.controller.class") + "\n." + serverElement.getTags()
+                                                                                                  .get("mvc.controller.method"));
 
             communicationDiagram.getLinkDataArray().add(link);
         }

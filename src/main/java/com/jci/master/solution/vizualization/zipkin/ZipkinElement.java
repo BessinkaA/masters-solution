@@ -2,6 +2,8 @@ package com.jci.master.solution.vizualization.zipkin;
 
 import lombok.*;
 
+import java.util.*;
+
 @Data
 public class ZipkinElement {
 
@@ -15,7 +17,7 @@ public class ZipkinElement {
     private Boolean shared;
     private ZipkinLocalEndpoint localEndpoint;
     private ZipkinRemoteEndpoint remoteEndpoint;
-    private ZipkinTags zipkinTags;
+    private Map<String, String> tags;
 
     public Boolean getShared() {
         if (shared == null){

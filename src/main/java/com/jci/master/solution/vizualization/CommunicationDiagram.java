@@ -9,6 +9,6 @@ import java.util.*;
 public class CommunicationDiagram {
 
     private ArrayList<CommunicationGroup> nodeDataArray = new ArrayList<>();
-    private ArrayList<Link> linkDataArray = new ArrayList<>();
+    private ArrayList<CommunicationLink> linkDataArray = new ArrayList<>();
 
 }
