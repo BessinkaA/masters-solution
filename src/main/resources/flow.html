@@ -89,7 +89,7 @@
                     $(go.Shape, "RoundedRectangle",
                         {
                             fill: bluegrad,
-                            portId: "", fromLinkable: true, cursor: "pointer", fromEndSegmentLength: 40
+                            portId: "", fromLinkable: true, toLinkable: true, cursor: "pointer", fromEndSegmentLength: 0, toEndSegmentLength: 30
                         }),
                     $(go.TextBlock, "Source", textStyle(),
                         new go.Binding("text", "text").makeTwoWay())
@@ -209,15 +209,17 @@
             }
             // replace the default Link template in the linkTemplateMap
             myDiagram.linkTemplate =
-                $(go.Link,  // the whole link panel
-                    new go.Binding("points").makeTwoWay(),
-                    { curve: go.Link.Bezier, toShortLength: 15 },
-                    new go.Binding("curviness", "curviness"),
-                    $(go.Shape,  // the link shape
+                 $(go.Link,  // the whole link panel
+                //     new go.Binding("points").makeTwoWay(),
+                     { curve: go.Link.Bezier, toShortLength: 15 },
+                //     new go.Binding("curviness", "curviness"),
+                     $(go.Shape,  // the link shape
                         { stroke: "#2F4F4F", strokeWidth: 2.5 }),
-                    $(go.Shape,  // the arrowhead
-                        { toArrow: "kite", fill: "#2F4F4F", stroke: null, scale: 2 })
-                );
+                 //    $(go.Shape,  // the arrowhead
+                 //        { toArrow: "standard", fill: "#2F4F4F", stroke: null })
+                     $(go.Shape,  // the arrowhead
+                         { toArrow: "standard", fill: "#2F4F4F", stroke: null, scale: 2 })
+                 );
             myDiagram.linkTemplateMap.add("Comment",
                 $(go.Link, { selectable: false },
                     $(go.Shape, { strokeWidth: 2, stroke: "darkgreen" })));

@@ -27,22 +27,22 @@
                     { locationSpot: go.Spot.Center },
                     // define the node's outer shape, which will surround the TextBlock
                     $(go.Shape, "Rectangle",
-                        { fill: $(go.Brush, "Linear", { 0: "rgb(254, 201, 0)", 1: "rgb(254, 162, 0)" }), stroke: "black" }),
+                        { fill: $(go.Brush, "Linear", { 0: "#B0E0E6", 1: "#87CEEB" }), stroke: "black" }),
                     $(go.TextBlock,
-                        { font: "bold 10pt helvetica, bold arial, sans-serif", margin: 4 },
+                        { font: "bold 10pt helvetica, bold arial, sans-serif", margin: 10 },
                         new go.Binding("text", "text"))
                 );
             // replace the default Link template in the linkTemplateMap
             myDiagram.linkTemplate =
                 $(go.Link,  // the whole link panel
                     $(go.Shape,  // the link shape
-                        { stroke: "black" }),
+                        { stroke: "black", strokeWidth: 1.5 }),
                     $(go.Shape,  // the arrowhead
-                        { toArrow: "standard", stroke: null }),
+                        { toArrow: "standard", stroke: null, scale: 1.5 }),
                     $(go.Panel, "Auto",
                         $(go.Shape,  // the label background, which becomes transparent around the edges
                             {
-                                fill: $(go.Brush, "Radial", { 0: "rgb(240, 240, 240)", 0.3: "rgb(240, 240, 240)", 1: "rgba(240, 240, 240, 0)" }),
+                                fill: $(go.Brush, "Radial", { 0: "rgb(240, 240, 240)", 0.8: "rgb(240, 240, 240)", 1: "rgba(240, 240, 240, 0)" }),
                                 stroke: null
                             }),
                         $(go.TextBlock,  // the label text

@@ -38,6 +38,7 @@ public class CommunicationJsonTransformer {
             communicationDiagram.getNodeDataArray().add(communicationGroup);
         }
 
+        int callCount = 1;
         for (int i = 0; i < zipkinElementsByTimestamp.size(); i++) {
             ZipkinElement clientElement = zipkinElementsByTimestamp.get(i);
 
@@ -56,10 +57,11 @@ public class CommunicationJsonTransformer {
             link.setFrom(serviceKeys.get(clientElement.getLocalEndpoint().getServiceName()));
             link.setTo(serviceKeys.get(serverElement.getLocalEndpoint().getServiceName()));
             // adding a custom text
-            link.setText(serverElement.getTags().get("mvc.controller.class") + "\n." + serverElement.getTags()
-                                                                                                  .get("mvc.controller.method"));
+            link.setText(callCount + ". " + serverElement.getTags().get("mvc.controller.class") + "\n." + serverElement.getTags()
+                                                                                                  .get("mvc.controller.method") + "()");
 
             communicationDiagram.getLinkDataArray().add(link);
+            callCount++;
         }
 
         try (Writer writer = new FileWriter("src/main/resources/communication.json")) {
