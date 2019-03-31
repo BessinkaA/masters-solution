@@ -1,13 +1,16 @@
 package com.jci.master.solution.vizualization.controller;
 
 import com.jci.master.solution.vizualization.*;
+import com.jci.master.solution.vizualization.ui.*;
 import com.jci.master.solution.vizualization.zipkin.*;
 import lombok.extern.slf4j.*;
+import org.apache.commons.io.*;
 import org.springframework.stereotype.*;
 import org.springframework.ui.*;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.*;
+import java.util.*;
 
 @Controller
 @Slf4j
@@ -21,8 +24,28 @@ public class TraceController {
         log.info("Getting all traces...");
 
         try {
-            ZipkinElement[][] traces = zipkinService.getTraces();
+            Filter filter = new Filter();
+            filter.setLookback("43200000");
+
+            ZipkinElement[][] traces = zipkinService.getTraces(filter);
             log.info("Traces: {}", traces);
+            model.addAttribute("traces", traces);
+            model.addAttribute("filter", filter);
+        } catch (Exception e) {
+            log.error("Request failed", e);
+        }
+
+        return "tracesView";
+    }
+
+    @PostMapping(value = "/traces")
+    public String findTraces(Model model, @ModelAttribute Filter filter) {
+        log.info("Getting all traces...");
+
+        try {
+            ZipkinElement[][] traces = zipkinService.getTraces(filter);
+            log.info("Traces: {}", traces);
+            model.addAttribute("filter",filter);
             model.addAttribute("traces", traces);
         } catch (Exception e) {
             log.error("Request failed", e);

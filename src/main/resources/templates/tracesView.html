@@ -1,10 +1,38 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"  xmlns:form="http://www.springframework.org/tags/form">
 <head>
     <title>Getting Started: Serving Web Content</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+
+<h3>Trace search</h3>
+<form action="#" th:action="@{/traces}" th:object="${filter}" method="post">
+    <table>
+        <tr>
+            <td>Service</td>
+            <td><input type="text" th:field="*{service}" /></td>
+        </tr>
+        <tr>
+            <td>Lookback</td>
+            <td>
+                <select th:field="*{lookback}">
+                    <option value="3600000"> Last 1 hour</option>
+                    <option value="10800000">Last 3 hours</option>
+                    <option value="21600000">Last 6 hours</option>
+                    <option value="43200000">Last 12 hours</option>
+                    <option value="86400000">Last 1 day</option>
+                    <option value="172800000">Last 2 days</option>
+                    <option value="604800000">Last 7 days</option>
+                    <option value="custom">Custom</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit"/></td>
+        </tr>
+    </table>
+</form>
 
 <table>
     <tr>
