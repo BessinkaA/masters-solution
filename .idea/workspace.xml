@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1aafacc-f3d8-41e6-8537-1c613b4dfc48" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/ui/Filter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/controller/TraceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/controller/TraceController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/zipkin/ZipkinService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/zipkin/ZipkinService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/tracesView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/tracesView.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/diagram.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/diagram.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sequence.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sequence.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -24,12 +19,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/tracesView.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
+            <state relative-caret-position="153">
+              <caret line="39" column="24" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
               <folding>
+                <element signature="n#style#0;n#p#0;n#td#0;n#tr#2;n#table#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#2;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -46,8 +42,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/ui/Filter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+            <state relative-caret-position="320">
+              <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -55,20 +54,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/controller/TraceController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="29" column="58" selection-start-line="29" selection-start-column="58" selection-end-line="29" selection-end-column="58" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/zipkin/ZipkinService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+            <state relative-caret-position="205">
+              <caret line="45" selection-start-line="45" selection-end-line="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -77,10 +64,25 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/controller/UiErrorController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="59" column="21" selection-start-line="59" selection-start-column="21" selection-end-line="59" selection-end-column="21" />
+            <state relative-caret-position="380">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/zipkin/ZipkinService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="64">
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -112,7 +114,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/CommunicationJsonTransformer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1060">
+            <state relative-caret-position="1180">
               <caret line="59" column="39" selection-start-line="59" selection-start-column="39" selection-end-line="59" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -221,11 +223,11 @@
         <option value="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/CommunicationJsonTransformer.java" />
         <option value="$PROJECT_DIR$/src/main/resources/communication.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/test.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/ui/Filter.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/tracesView.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/controller/TraceController.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/ui/Filter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/zipkin/ZipkinService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/tracesView.html" />
       </list>
     </option>
   </component>
@@ -254,8 +256,8 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
-    <option name="width" value="1680" />
-    <option name="height" value="977" />
+    <option name="width" value="1920" />
+    <option name="height" value="1007" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -307,6 +309,15 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="vizualization" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="solution" type="b2602c69:ProjectViewProjectNode" />
+              <item name="solution" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="vizualization" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="solution" type="b2602c69:ProjectViewProjectNode" />
@@ -459,6 +470,7 @@
       <workItem from="1553360888527" duration="13067000" />
       <workItem from="1553969416331" duration="3449000" />
       <workItem from="1554044658957" duration="2602000" />
+      <workItem from="1554568462228" duration="2469000" />
     </task>
     <task id="LOCAL-00001" summary="Adding service calls">
       <created>1550434063702</created>
@@ -558,25 +570,31 @@
       <option name="project" value="LOCAL" />
       <updated>1553972128361</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="adding calendar">
+      <created>1554406110585</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1554406110585</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49402000" />
+    <option name="totallyTimeSpent" value="54098000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="977" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26228502" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22850123" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Web" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3297491" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3679809" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.45107397" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.45878136" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.45041817" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -663,7 +681,20 @@
     <MESSAGE value="Communication diagram work in progress 2" />
     <MESSAGE value="Communication diagram done" />
     <MESSAGE value="Brushing up diagrams" />
-    <option name="LAST_COMMIT_MESSAGE" value="Brushing up diagrams" />
+    <MESSAGE value="adding calendar" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding calendar" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/zipkin/ZipkinService.java</url>
+          <line>29</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
@@ -954,7 +985,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/zipkin/ZipkinElement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
+        <state relative-caret-position="350">
           <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -985,14 +1016,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/zipkin.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3580">
-          <caret line="179" column="30" selection-start-line="179" selection-start-column="9" selection-end-line="179" selection-end-column="30" />
+        <state relative-caret-position="343">
+          <caret line="173" column="21" lean-forward="true" selection-start-line="173" selection-start-column="21" selection-end-line="173" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/test.html" />
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1180">
+          <caret line="59" column="21" selection-start-line="59" selection-start-column="21" selection-end-line="59" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/ui/Filter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/controller/UiErrorController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
+        <state relative-caret-position="380">
           <caret line="19" selection-start-line="19" selection-end-line="19" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1022,7 +1071,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/CommunicationJsonTransformer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1060">
+        <state relative-caret-position="1180">
           <caret line="59" column="39" selection-start-line="59" selection-start-column="39" selection-end-line="59" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1051,25 +1100,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/test.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/controller/TraceController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="25" column="12" lean-forward="true" selection-start-line="5" selection-end-line="25" selection-end-column="12" />
+        <state relative-caret-position="205">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/ui/Filter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/zipkin/ZipkinService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+        <state relative-caret-position="64">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/tracesView.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
+        <state relative-caret-position="153">
+          <caret line="39" column="24" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
           <folding>
+            <element signature="n#style#0;n#p#0;n#td#0;n#tr#2;n#table#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#2;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1078,33 +1134,6 @@
             <element signature="n#style#0;n#td#1;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#2;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#3;n#tr#1;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/controller/TraceController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="29" column="58" selection-start-line="29" selection-start-column="58" selection-end-line="29" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="59" column="21" selection-start-line="59" selection-start-column="21" selection-end-line="59" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/zipkin/ZipkinService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,11 +1,13 @@
 package com.jci.master.solution.vizualization.zipkin;
 
 import com.jci.master.solution.vizualization.ui.*;
+import lombok.extern.slf4j.*;
 import org.apache.commons.lang3.*;
 import org.springframework.stereotype.*;
 import org.springframework.web.client.*;
 
 @Service
+@Slf4j
 public class ZipkinService {
 
     RestTemplate restTemplate = new RestTemplate();
@@ -30,6 +32,7 @@ public class ZipkinService {
             url = url + "&lookback=" + filter.getLookback();
         }
 
+        log.info("URL: {}", url);
         return restTemplate.getForObject(url, ZipkinElement[][].class);
     }
 }

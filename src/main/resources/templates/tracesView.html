@@ -3,8 +3,45 @@
 <head>
     <title>Getting Started: Serving Web Content</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script>
+        function decideOnCalendar(){
+            var lookback = document.getElementById("lookback");
+            var selection = lookback.options[lookback.selectedIndex].value;
+
+            var calendarFrom = document.getElementById("date-from");
+            var calendarTo = document.getElementById("date-to");
+            if (selection === "custom"){
+                calendarFrom.style.display = "inline";
+                calendarTo.style.display = "inline";
+            } else{
+                calendarFrom.style.display = "none";
+                calendarTo.style.display = "none";
+            }
+        }
+
+        function validate() {
+            var validationError = document.getElementById("validation-error");
+            validationError.style.display = "none";
+
+            var lookback = document.getElementById("lookback");
+            var selection = lookback.options[lookback.selectedIndex].value;
+            if(selection === "custom") {
+                var calendarFrom = document.getElementById("date-from");
+                var calendarTo = document.getElementById("date-to");
+
+                var from = calendarFrom.value;
+                var to = calendarTo.value;
+
+                if (!from || !to || from.localeCompare(to) >= 0){
+                    validationError.style.display = "inline";
+                    return false;
+                }
+            }
+            return true;
+        }
+    </script>
 </head>
-<body>
+<body onload="decideOnCalendar();validate()">
 
 <h3>Trace search</h3>
 <form action="#" th:action="@{/traces}" th:object="${filter}" method="post">
@@ -16,7 +53,7 @@
         <tr>
             <td>Lookback</td>
             <td>
-                <select th:field="*{lookback}">
+                <select th:field="*{lookback}" id="lookback" onchange="decideOnCalendar()">
                     <option value="3600000"> Last 1 hour</option>
                     <option value="10800000">Last 3 hours</option>
                     <option value="21600000">Last 6 hours</option>
@@ -31,7 +68,13 @@
             </td>
         </tr>
         <tr>
-            <td><input type="submit" value="Submit"/></td>
+            <td></td>
+            <td>
+                <p style="color: red" id="validation-error"> Provided dates are not valid, please enter valid dates</p>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit" onclick="return validate()"/></td>
         </tr>
     </table>
 </form>
