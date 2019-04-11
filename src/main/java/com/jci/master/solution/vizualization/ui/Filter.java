@@ -16,4 +16,6 @@ public class Filter {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date to;
+
+    private boolean ascOrder = false;
 }

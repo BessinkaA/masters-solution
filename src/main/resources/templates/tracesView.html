@@ -127,12 +127,15 @@
             <table style="display: inline-block">
                 <tr>
                     <td style="padding: 10px; background-color: lightskyblue">Trace ID</td>
+                    <td style="padding: 10px; background-color: lightskyblue">Trace timestamp</td>
                     <td style="padding: 10px; background-color: lightskyblue">Flow diagram</td>
                     <td style="padding: 10px; background-color: lightskyblue">Sequence diagram</td>
                     <td style="padding: 10px; background-color: lightskyblue">Communication diagram</td>
                 </tr>
                 <tr th:each="trace : ${traces}">
                     <td style="padding: 10px" th:text="${trace[0].traceId}">123</td>
+                    <td style="padding: 10px" th:text="${#dates.format(trace[0].timestamp, 'dd MMM yyyy HH:mm:ss')}">Trace timestamp</td>
+
                     <td style="padding: 10px"><a th:href="@{'/trace/flow/' + ${trace[0].traceId}}">View</a></td>
                     <td style="padding: 10px"><a th:href="@{'/trace/sequence/' + ${trace[0].traceId}}">View</a></td>
                     <td style="padding: 10px"><a th:href="@{'/trace/communication/' + ${trace[0].traceId}}">View</a>

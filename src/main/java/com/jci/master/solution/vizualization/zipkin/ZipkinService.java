@@ -6,6 +6,8 @@ import org.apache.commons.lang3.*;
 import org.springframework.stereotype.*;
 import org.springframework.web.client.*;
 
+import java.util.*;
+
 @Service
 @Slf4j
 public class ZipkinService {
@@ -32,8 +34,16 @@ public class ZipkinService {
             url = url + "&lookback=" + filter.getLookback();
         }
 
+        Comparator<ZipkinElement[]> comparator = Comparator.comparing(t -> t[0].getTimestamp());
+        if(!filter.isAscOrder()) {
+            comparator = comparator.reversed();
+        }
+
         log.info("URL: {}", url);
-        return restTemplate.getForObject(url, ZipkinElement[][].class);
+        ZipkinElement[][] traces = restTemplate.getForObject(url, ZipkinElement[][].class);
+
+        Arrays.sort(traces, comparator);
+        return traces;
     }
 }
 
