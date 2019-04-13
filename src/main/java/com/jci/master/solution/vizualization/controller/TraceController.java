@@ -27,7 +27,7 @@ public class TraceController {
             Filter filter = new Filter();
             filter.setLookback("43200000");
 
-            ZipkinElement[][] traces = zipkinService.getTraces(filter);
+            List<Trace> traces = zipkinService.getTraces(filter);
             log.info("Traces: {}", traces);
             model.addAttribute("traces", traces);
             model.addAttribute("filter", filter);
@@ -43,7 +43,7 @@ public class TraceController {
         log.info("Getting all traces...");
 
         try {
-            ZipkinElement[][] traces = zipkinService.getTraces(filter);
+            List<Trace> traces = zipkinService.getTraces(filter);
             log.info("Traces: {}", traces);
             model.addAttribute("filter",filter);
             model.addAttribute("traces", traces);
