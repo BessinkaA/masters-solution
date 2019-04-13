@@ -31,7 +31,7 @@
             background-color: whitesmoke;
             /*color: #fff;*/
             text-align: center;
-            border-color: darkblue;
+            border-color: cornflowerblue;
             border-width: 2px;
             border-style: solid;
             border-radius: 6px;
@@ -183,13 +183,13 @@
                     <tr id="row-from">
                         <td>From</td>
                         <td>
-                            <input type="date" data-date-format="DD/MM/YYYY" th:field="*{from}" id="date-from"/>
+                            <input type="datetime-local" th:field="*{from}" id="date-from"/>
                         </td>
                     </tr>
                     <tr id="row-to">
                         <td>To</td>
                         <td>
-                            <input type="date" data-date-format="DD/MM/YYYY" th:field="*{to}" id="date-to"/>
+                            <input type="datetime-local" th:field="*{to}" id="date-to"/>
                         </td>
                     </tr>
                     <tr id="validation-error">
