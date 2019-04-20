@@ -114,4 +114,10 @@ public class TraceController {
             throw e;
         }
     }
+
+    @GetMapping(value = "/trace/all/{traceId}", produces = "text/html")
+    public String getAllDiagrams(Model model, @PathVariable("traceId") String traceId) {
+        model.addAttribute("traceId", traceId);
+        return "viewAll";
+    }
 }

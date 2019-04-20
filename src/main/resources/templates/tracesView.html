@@ -222,6 +222,7 @@
                     <td style="padding: 10px; background-color: lightskyblue">Flow diagram</td>
                     <td style="padding: 10px; background-color: lightskyblue">Sequence diagram</td>
                     <td style="padding: 10px; background-color: lightskyblue">Communication diagram</td>
+                    <td style="padding: 10px; background-color: lightskyblue">View all diagrams</td>
                 </tr>
                 <tr th:each="trace : ${traces}">
                     <td style="padding: 10px" th:text="${trace.traceId}">123</td>
@@ -235,13 +236,11 @@
                                 <span class="popuptext" th:text="${trace.services}">asset-service</span>
                             </div>
                         </div>
-
                     </td>
-
                     <td style="padding: 10px"><a th:href="@{'/trace/flow/' + ${trace.traceId}}">View</a></td>
                     <td style="padding: 10px"><a th:href="@{'/trace/sequence/' + ${trace.traceId}}">View</a></td>
-                    <td style="padding: 10px"><a th:href="@{'/trace/communication/' + ${trace.traceId}}">View</a>
-                    </td>
+                    <td style="padding: 10px"><a th:href="@{'/trace/communication/' + ${trace.traceId}}">View</a></td>
+                    <td style="padding: 10px"><a th:href="@{'/trace/all/' + ${trace.traceId}}">View</a></td>
                 </tr>
             </table>
 
