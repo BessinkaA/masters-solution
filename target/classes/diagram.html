@@ -1,72 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Concept Map</title>
-    <meta name="description" content="A concept map diagram implemented with labeled links and ForceDirectedLayout." />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sequence Diagram</title>
+    <meta name="description" content="A sequence diagram editor."/>
     <!-- Copyright 1998-2019 by Northwoods Software Corporation. -->
-
+    <meta charset="UTF-8">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gojs/2.0.4/go-debug.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+    <!--<script src="../assets/js/goSamples.js"></script>  &lt;!&ndash; this is only for the GoJS Samples framework &ndash;&gt;-->
     <script id="code">
         function init() {
-            if (window.goSamples) goSamples();  // init for these samples -- you don't need to call this
-            var $ = go.GraphObject.make;  // for conciseness in defining templates
+            // if (window.goSamples) goSamples();  // init for these samples -- you don't need to call this
+            var $ = go.GraphObject.make;
             myDiagram =
-                $(go.Diagram, "myDiagramDiv",  // must name or refer to the DIV HTML element
+                $(go.Diagram, "myDiagramDiv", // must be the ID or reference to an HTML DIV
                     {
-                        initialAutoScale: go.Diagram.Uniform,  // an initial automatic zoom-to-fit
-                        contentAlignment: go.Spot.Center,  // align document to the center of the viewport
-                        layout:
-                            $(go.ForceDirectedLayout,  // automatically spread nodes apart
-                                { maxIterations: 200, defaultSpringLength: 30, defaultElectricalCharge: 300 })
+                        allowCopy: false,
+                        linkingTool: $(MessagingTool),  // defined below
+                        "resizingTool.isGridSnapEnabled": true,
+                        draggingTool: $(MessageDraggingTool),  // defined below
+                        "draggingTool.gridSnapCellSize": new go.Size(1, MessageSpacing / 4),
+                        "draggingTool.isGridSnapEnabled": true,
+                        // automatically extend Lifelines as Activities are moved or resized
+                        "SelectionMoved": ensureLifelineHeights,
+                        "PartResized": ensureLifelineHeights,
+                        "undoManager.isEnabled": true
                     });
-            // define each Node's appearance
-            myDiagram.nodeTemplate =
-                $(go.Node, "Auto",  // the whole node panel
-                    { locationSpot: go.Spot.Center },
-                    // define the node's outer shape, which will surround the TextBlock
-                    $(go.Shape, "Rectangle",
-                        { fill: $(go.Brush, "Linear", { 0: "#B0E0E6", 1: "#87CEEB" }), stroke: "black" }),
-                    $(go.TextBlock,
-                        { font: "bold 10pt helvetica, bold arial, sans-serif", margin: 10 },
-                        new go.Binding("text", "text"))
-                );
-            // replace the default Link template in the linkTemplateMap
-            myDiagram.linkTemplate =
-                $(go.Link,  // the whole link panel
-                    $(go.Shape,  // the link shape
-                        { stroke: "black", strokeWidth: 1.5 }),
-                    $(go.Shape,  // the arrowhead
-                        { toArrow: "standard", stroke: null, scale: 1.5 }),
+            // when the document is modified, add a "*" to the title and enable the "Save" button
+            myDiagram.addDiagramListener("Modified", function (e) {
+                var button = document.getElementById("SaveButton");
+                if (button) button.disabled = !myDiagram.isModified;
+                var idx = document.title.indexOf("*");
+                if (myDiagram.isModified) {
+                    if (idx < 0) document.title += "*";
+                } else {
+                    if (idx >= 0) document.title = document.title.substr(0, idx);
+                }
+            });
+            // define the Lifeline Node template.
+            myDiagram.groupTemplate =
+                $(go.Group, "Vertical",
+                    {
+                        locationSpot: go.Spot.Bottom,
+                        locationObjectName: "HEADER",
+                        minLocation: new go.Point(0, 0),
+                        maxLocation: new go.Point(9999, 0),
+                        selectionObjectName: "HEADER"
+                    },
+                    new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
                     $(go.Panel, "Auto",
-                        $(go.Shape,  // the label background, which becomes transparent around the edges
+                        {name: "HEADER"},
+                        $(go.Shape, "Rectangle",
                             {
-                                fill: $(go.Brush, "Radial", { 0: "rgb(240, 240, 240)", 0.8: "rgb(240, 240, 240)", 1: "rgba(240, 240, 240, 0)" }),
+                                fill: $(go.Brush, "Linear", {0: "#bbdefb", 1: go.Brush.darkenBy("#bbdefb", 0.1)}),
                                 stroke: null
                             }),
-                        $(go.TextBlock,  // the label text
+                        $(go.TextBlock,
                             {
-                                textAlign: "center",
-                                font: "10pt helvetica, arial, sans-serif",
-                                stroke: "#555555",
-                                margin: 4
+                                margin: 5,
+                                font: "400 10pt Source Sans Pro, sans-serif"
                             },
                             new go.Binding("text", "text"))
-                    )
+                    ),
+                    $(go.Shape,
+                        {
+                            figure: "LineV",
+                            fill: null,
+                            stroke: "gray",
+                            strokeDashArray: [3, 3],
+                            width: 1,
+                            alignment: go.Spot.Center,
+                            portId: "",
+                            fromLinkable: true,
+                            fromLinkableDuplicates: true,
+                            toLinkable: true,
+                            toLinkableDuplicates: true,
+                            cursor: "pointer"
+                        },
+                        new go.Binding("height", "duration", computeLifelineHeight))
                 );
-            // create the model for the concept map
-            var json = {"nodeDataArray":[{"key":1,"text":"gateway-service"},{"key":2,"text":"temperature-service"},{"key":3,"text":"asset-service"},{"key":4,"text":"climate-control-service"},{"key":5,"text":"fire-service"},{"key":6,"text":"occupancy-service"},{"key":7,"text":"contact-service"},{"key":8,"text":"alert-service"}],"linkDataArray":[{"from":1,"to":2,"text":"1. TemperatureController\n.receiveTemperatureData()"},{"from":2,"to":3,"text":"2. AssetController\n.getEmergencyContacts()"},{"from":2,"to":4,"text":"3. ClimateController\n.create()"},{"from":4,"to":5,"text":"4. FireServiceController\n.receiveFireEvent()"},{"from":5,"to":6,"text":"5. OccupancyController\n.getEmergencyContacts()"},{"from":5,"to":7,"text":"6. ContactController\n.getEmergencyContacts()"},{"from":5,"to":8,"text":"7. AlertController\n.recieveAlert()"}]}
-            myDiagram.model = new go.GraphLinksModel(json.nodeDataArray, json.linkDataArray);
-        }
-    </script>
-</head>
-<body onload="init()">
-<div id="sample">
-    <div id="myDiagramDiv" style="background-color: whitesmoke; border: solid 1px black; width: 100%; height: 800px"></div>
-</div>
-</body>
-</html>             {
+            // define the Activity Node template
+            myDiagram.nodeTemplate =
+                $(go.Node,
+                    {
                         locationSpot: go.Spot.Top,
                         locationObjectName: "SHAPE",
                         minLocation: new go.Point(NaN, LinePrefix - ActivityStart),
@@ -341,7 +358,7 @@
              <button onclick="load()">Load</button>
          </div>-->
         <textarea id="mySavedModel" style="width:100%;height:240px" hidden>
-{"class":"go.GraphLinksModel","nodeDataArray":[{"group":"asset-service","start":2,"duration":1},{"group":"occupancy-service","start":7,"duration":1},{"group":"contact-service","start":10,"duration":1},{"group":"alert-service","start":13,"duration":1},{"group":"fire-service","start":6,"duration":9},{"group":"climate-control-service","start":5,"duration":11},{"group":"temperature-service","start":1,"duration":16},{"group":"gateway-service","start":0,"duration":18},{"key":"gateway-service","text":"gateway-service","isGroup":true,"loc":"0 0","duration":19},{"key":"temperature-service","text":"temperature-service","isGroup":true,"loc":"150 0","duration":19},{"key":"asset-service","text":"asset-service","isGroup":true,"loc":"300 0","duration":19},{"key":"climate-control-service","text":"climate-control-service","isGroup":true,"loc":"450 0","duration":19},{"key":"fire-service","text":"fire-service","isGroup":true,"loc":"600 0","duration":19},{"key":"occupancy-service","text":"occupancy-service","isGroup":true,"loc":"750 0","duration":19},{"key":"contact-service","text":"contact-service","isGroup":true,"loc":"900 0","duration":19},{"key":"alert-service","text":"alert-service","isGroup":true,"loc":"1050 0","duration":19}],"linkDataArray":[{"from":"gateway-service","to":"temperature-service","text":"post /","time":1},{"from":"temperature-service","to":"asset-service","text":"get /{sensorid}","time":2},{"from":"asset-service","to":"temperature-service","time":3},{"from":"temperature-service","to":"climate-control-service","text":"post /","time":5},{"from":"climate-control-service","to":"fire-service","text":"post /","time":6},{"from":"fire-service","to":"occupancy-service","text":"get /{roomid}","time":7},{"from":"occupancy-service","to":"fire-service","time":8},{"from":"fire-service","to":"contact-service","text":"get /{roomid}","time":10},{"from":"contact-service","to":"fire-service","time":11},{"from":"fire-service","to":"alert-service","text":"post /","time":13},{"from":"alert-service","to":"fire-service","time":14},{"from":"fire-service","to":"climate-control-service","time":15},{"from":"climate-control-service","to":"temperature-service","time":16},{"from":"temperature-service","to":"gateway-service","time":17}]}
+{"class":"go.GraphLinksModel","nodeDataArray":[{"group":"temperature-service","start":1,"duration":1},{"group":"gateway-service","start":0,"duration":3},{"key":"gateway-service","text":"gateway-service","isGroup":true,"loc":"0 0","duration":4},{"key":"temperature-service","text":"temperature-service","isGroup":true,"loc":"150 0","duration":4}],"linkDataArray":[{"from":"gateway-service","to":"temperature-service","text":"post /","time":1},{"from":"temperature-service","to":"gateway-service","time":2}]}
     </textarea>
     </div>
 </div>
