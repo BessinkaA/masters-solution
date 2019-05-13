@@ -1,5 +1,9 @@
 package com.jci.master.solution.vizualization.sequence;
 
+/*
+ * Class representing sequence diagram
+ */
+
 import com.google.gson.annotations.*;
 import com.jci.master.solution.vizualization.*;
 import lombok.*;

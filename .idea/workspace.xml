@@ -3,23 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e1aafacc-f3d8-41e6-8537-1c613b4dfc48" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/CommunicationDiagram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/communication/CommunicationDiagram.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/CommunicationGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/communication/CommunicationGroup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/CommunicationJsonTransformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/communication/CommunicationJsonTransformer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/CommunicationLink.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/communication/CommunicationLink.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/FlowDiagram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/flow/FlowDiagram.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/FlowGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/flow/FlowGroup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/FlowJsonTransformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/flow/FlowJsonTransformer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/SequenceDiagram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceDiagram.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/SequenceGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceGroup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/SequenceJsonTransformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceJsonTransformer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/SequenceSpan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceSpan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/controller/TraceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/controller/TraceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/solution.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceDiagram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceDiagram.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceGroup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceSpan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceSpan.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/jci/master/solution/vizualization/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jci/master/solution/vizualization/Application.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/jci/master/solution/vizualization/DiagramGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jci/master/solution/vizualization/DiagramGenerator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jci/master/solution/vizualization/SequenceDiagram.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jci/master/solution/vizualization/SequenceGroup.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -34,44 +22,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceDiagram.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceGroup.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="4" column="49" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceSpan.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="4" column="49" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/flow/FlowJsonTransformer.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceJsonTransformer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1100">
-              <caret line="55" column="69" selection-start-line="55" selection-start-column="69" selection-end-line="55" selection-end-column="69" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/flow/FlowDiagram.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/flow/FlowGroup.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/zipkin/ZipkinElement.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+            <state relative-caret-position="100">
+              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -120,9 +105,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/ZipkinTags.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/ZipkinRemoteEndpoint.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/ZipkinLocalEndpoint.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/ZinpkinOutput.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/ZipkinOutput.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/ZipkinElement.java" />
@@ -171,6 +153,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/flow/FlowDiagram.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/flow/FlowGroup.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/flow/FlowJsonTransformer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceDiagram.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceGroup.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceSpan.java" />
       </list>
     </option>
   </component>
@@ -250,16 +235,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="vizualization" type="462c0819:PsiDirectoryNode" />
-              <item name="flow" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="solution" type="b2602c69:ProjectViewProjectNode" />
-              <item name="solution" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="vizualization" type="462c0819:PsiDirectoryNode" />
-              <item name="zipkin" type="462c0819:PsiDirectoryNode" />
+              <item name="sequence" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="solution" type="b2602c69:ProjectViewProjectNode" />
@@ -433,7 +409,7 @@
       <workItem from="1555407104289" duration="444000" />
       <workItem from="1555767184377" duration="3511000" />
       <workItem from="1556972106522" duration="1332000" />
-      <workItem from="1557756086347" duration="2838000" />
+      <workItem from="1557756086347" duration="3139000" />
     </task>
     <task id="LOCAL-00001" summary="Adding service calls">
       <created>1550434063702</created>
@@ -610,15 +586,21 @@
       <option name="project" value="LOCAL" />
       <updated>1557758371590</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Adding flow comments and refactoring">
+      <created>1557758978574</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1557758978574</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80821000" />
+    <option name="totallyTimeSpent" value="81122000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1007" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23447537" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -725,7 +707,8 @@
     <MESSAGE value="Adding ui comments" />
     <MESSAGE value="Adding zipkin comments" />
     <MESSAGE value="Adding communication comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding communication comments" />
+    <MESSAGE value="Adding flow comments and refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding flow comments and refactoring" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
@@ -1124,40 +1107,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceDiagram.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceGroup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceJsonTransformer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceSpan.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/flow/FlowDiagram.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -1189,6 +1138,40 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1100">
           <caret line="55" column="69" selection-start-line="55" selection-start-column="69" selection-end-line="55" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="49" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceSpan.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="49" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceDiagram.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceJsonTransformer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

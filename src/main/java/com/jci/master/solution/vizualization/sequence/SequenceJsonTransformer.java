@@ -46,14 +46,13 @@ public class SequenceJsonTransformer {
             SequenceGroup sequenceGroup = new SequenceGroup();
             sequenceGroup.setKey(serviceName);
             sequenceGroup.setText(serviceName);
-            sequenceGroup.setDuration(time+1);
+            sequenceGroup.setDuration(time + 1);
             sequenceGroup.setIsGroup(true);
             int x = i * 150;
             sequenceGroup.setLoc(x + " 0");
 
             sequenceDiagram.getNodeDataArray().add(sequenceGroup);
         }
-
 
 
         try (Writer writer = new FileWriter("src/main/resources/sequence.json")) {
@@ -96,7 +95,7 @@ public class SequenceJsonTransformer {
             addClientToServerLink(childClientElement, childServerElement, sequenceDiagram, time);
             time = processElement(zipkinElementsByTimestamp, childServerElement, time, sequenceDiagram);
             addServerToClientLink(childClientElement, childServerElement, sequenceDiagram, time);
-            if(i < childElements.size() - 1) {
+            if (i < childElements.size() - 1) {
                 time += 2;
             } else {
                 time++;
@@ -127,7 +126,7 @@ public class SequenceJsonTransformer {
 
     public void addClientToServerLink(ZipkinElement clientElement, ZipkinElement serverElement, SequenceDiagram sequenceDiagram, int time) {
 
-        if(clientElement != null) {
+        if (clientElement != null) {
             Link link = new Link();
             link.setFrom(clientElement.getLocalEndpoint().getServiceName());
             link.setTo(serverElement.getLocalEndpoint().getServiceName());
