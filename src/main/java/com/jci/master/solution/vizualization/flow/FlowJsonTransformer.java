@@ -5,7 +5,6 @@ package com.jci.master.solution.vizualization.flow;
  */
 
 import com.google.gson.*;
-import com.jci.master.solution.vizualization.*;
 import com.jci.master.solution.vizualization.zipkin.*;
 import lombok.*;
 

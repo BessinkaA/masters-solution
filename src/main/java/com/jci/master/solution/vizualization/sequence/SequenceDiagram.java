@@ -5,7 +5,7 @@ package com.jci.master.solution.vizualization.sequence;
  */
 
 import com.google.gson.annotations.*;
-import com.jci.master.solution.vizualization.*;
+import com.jci.master.solution.vizualization.flow.*;
 import lombok.*;
 
 import java.util.*;

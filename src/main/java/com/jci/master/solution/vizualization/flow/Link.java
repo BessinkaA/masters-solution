@@ -1,4 +1,8 @@
-package com.jci.master.solution.vizualization;
+package com.jci.master.solution.vizualization.flow;
+
+/*
+ * Class representing links for flow diagram
+ */
 
 import lombok.*;
 
