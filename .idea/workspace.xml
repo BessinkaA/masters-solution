@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1aafacc-f3d8-41e6-8537-1c613b4dfc48" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceDiagram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceDiagram.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceGroup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceSpan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceSpan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jci/master/solution/vizualization/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jci/master/solution/vizualization/Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jci/master/solution/vizualization/DiagramGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jci/master/solution/vizualization/DiagramGenerator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceJsonTransformer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceJsonTransformer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -55,8 +50,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceJsonTransformer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+            <state relative-caret-position="33">
+              <caret line="97" column="17" lean-forward="true" selection-start-line="97" selection-start-column="17" selection-end-line="97" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -149,13 +144,13 @@
         <option value="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/communication/CommunicationDiagram.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/communication/CommunicationGroup.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/communication/CommunicationLink.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceJsonTransformer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/flow/FlowDiagram.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/flow/FlowGroup.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/flow/FlowJsonTransformer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceDiagram.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceGroup.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceSpan.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceJsonTransformer.java" />
       </list>
     </option>
   </component>
@@ -409,7 +404,7 @@
       <workItem from="1555407104289" duration="444000" />
       <workItem from="1555767184377" duration="3511000" />
       <workItem from="1556972106522" duration="1332000" />
-      <workItem from="1557756086347" duration="3139000" />
+      <workItem from="1557756086347" duration="5047000" />
     </task>
     <task id="LOCAL-00001" summary="Adding service calls">
       <created>1550434063702</created>
@@ -593,22 +588,30 @@
       <option name="project" value="LOCAL" />
       <updated>1557758978574</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Starting sequence comments">
+      <created>1557759288247</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1557759288248</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81122000" />
+    <option name="totallyTimeSpent" value="83030000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1007" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23447537" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23447537" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Web" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32871974" />
+      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.23298731" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.07526882" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.45041817" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -683,7 +686,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Adding service calls" />
     <MESSAGE value="Adding initial UI" />
     <MESSAGE value="Adding initial UI 2" />
     <MESSAGE value="Fixing stuff" />
@@ -708,7 +710,8 @@
     <MESSAGE value="Adding zipkin comments" />
     <MESSAGE value="Adding communication comments" />
     <MESSAGE value="Adding flow comments and refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding flow comments and refactoring" />
+    <MESSAGE value="Starting sequence comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Starting sequence comments" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
@@ -1170,8 +1173,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jci/master/solution/vizualization/sequence/SequenceJsonTransformer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        <state relative-caret-position="33">
+          <caret line="97" column="17" lean-forward="true" selection-start-line="97" selection-start-column="17" selection-end-line="97" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

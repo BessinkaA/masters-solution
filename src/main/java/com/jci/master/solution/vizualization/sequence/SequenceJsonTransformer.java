@@ -33,9 +33,13 @@ public class SequenceJsonTransformer {
     /**
      * Method to transform a list of Zipkin elements to a string representing sequence diagram
      *
-     * @param zipkinOutput list of Zipkin elements
+     * @param zipkinOutput
+     *         list of Zipkin elements
+     *
      * @return string representing sequence diagram
-     * @throws IOException exception
+     *
+     * @throws IOException
+     *         exception
      */
     public String transform(ZipkinElement[] zipkinOutput) throws IOException {
         // getting service names from the list of Zipkin elements
@@ -78,8 +82,10 @@ public class SequenceJsonTransformer {
     /**
      * Entry method to start recursive population of sequence diagram calls
      *
-     * @param zipkinElementsByTimestamp list of zipkin elements by timestamp
-     * @param sequenceDiagram sequence diagram
+     * @param zipkinElementsByTimestamp
+     *         list of zipkin elements by timestamp
+     * @param sequenceDiagram
+     *         sequence diagram
      *
      * @return duration of the root call
      */
@@ -95,13 +101,18 @@ public class SequenceJsonTransformer {
     }
 
     /**
-     * Method to 
+     * Method to draw a callspan for a given service and request/response arrows for its child calls
      *
-     * @param zipkinElementsByTimestamp list of zipkin elements sorted by timestamp
-     * @param element zipkin element
-     * @param time time
-     * @param sequenceDiagram sequence diagram
-     * @return
+     * @param zipkinElementsByTimestamp
+     *         list of zipkin elements sorted by timestamp
+     * @param element
+     *         zipkin element
+     * @param time
+     *         time
+     * @param sequenceDiagram
+     *         sequence diagram
+     *
+     * @return time of the last response for a given service
      */
     private int processElement(List<ZipkinElement> zipkinElementsByTimestamp, ZipkinElement element, int time, SequenceDiagram sequenceDiagram) {
         // find if this element has any child elements
