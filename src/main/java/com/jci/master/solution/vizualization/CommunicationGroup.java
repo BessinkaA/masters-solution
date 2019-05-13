@@ -1,5 +1,10 @@
 package com.jci.master.solution.vizualization;
 
+/*
+ * Class representing communication group.
+ * Communication group is a part of communication diagram object.
+ */
+
 import lombok.*;
 
 @Data

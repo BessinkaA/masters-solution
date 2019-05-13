@@ -1,6 +1,9 @@
 package com.jci.master.solution.vizualization;
 
-import com.google.gson.annotations.*;
+/*
+ * Class representing communication diagram
+ */
+
 import lombok.*;
 
 import java.util.*;

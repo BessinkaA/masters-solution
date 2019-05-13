@@ -77,7 +77,7 @@ public class ZipkinService {
      * @param e
      *         Zipkin element
      *
-     * @return trace
+     * @return Trace trace
      */
     protected Trace toTrace(ZipkinElement[] e) {
         Trace trace = new Trace();
