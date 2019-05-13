@@ -1,8 +1,5 @@
 package com.jci.master.solution.vizualization;
 
-/* Class responsible for diagram generation.
- *
- */
 
 import org.apache.commons.io.*;
 
@@ -10,6 +7,9 @@ import java.io.*;
 import java.net.*;
 import java.nio.charset.*;
 
+/**
+ * Class responsible for diagram generation.
+ */
 public class DiagramGenerator {
 
     /**

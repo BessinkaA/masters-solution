@@ -1,13 +1,13 @@
 package com.jci.master.solution.vizualization.ui;
 
-/*
- * Trace class representing the trace and it's attributes.
- */
 
 import lombok.*;
 
 import java.util.*;
 
+/**
+ * Trace class representing the trace and it's attributes.
+ */
 @Data
 public class Trace {
     private String traceId;

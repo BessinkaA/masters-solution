@@ -1,9 +1,5 @@
 package com.jci.master.solution.vizualization.zipkin;
 
-/*
- * Class representing trace element received from Zipkin service.
- * Contains all Zipkin element's attributes.
- */
 
 import com.fasterxml.jackson.core.*;
 import com.fasterxml.jackson.databind.*;
@@ -13,6 +9,10 @@ import lombok.*;
 import java.io.*;
 import java.util.*;
 
+/**
+ * Class representing trace element received from Zipkin service.
+ * Contains all Zipkin element's attributes.
+ */
 @Data
 public class ZipkinElement {
 
@@ -37,20 +37,18 @@ public class ZipkinElement {
     }
 
     /**
-     * Method to transform date into readable format
+     * Deserializer to transform JSON timestamp into Java Date object
      */
     public static class UnixTimestampDeserializer extends JsonDeserializer<Date> {
 
         @Override
-        public Date deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException,
-                                                                                   JsonProcessingException {
+        public Date deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException {
             String timestamp = jp.getText().trim();
 
             try {
                 return new Date(Long.valueOf(timestamp) / 1000);
             } catch (NumberFormatException e) {
-                e.printStackTrace();
-                return null;
+                throw new RuntimeException("Failed to convert date " + timestamp, e);
             }
         }
     }

@@ -1,11 +1,11 @@
 package com.jci.master.solution.vizualization.zipkin;
 
-/*
- * Class representing Zipkin Local endpoint
- */
 
 import lombok.*;
 
+/**
+ * Class representing Zipkin Local endpoint
+ */
 @Data
 public class ZipkinLocalEndpoint {
 

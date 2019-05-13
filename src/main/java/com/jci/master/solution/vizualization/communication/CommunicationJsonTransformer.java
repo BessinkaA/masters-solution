@@ -1,8 +1,5 @@
 package com.jci.master.solution.vizualization.communication;
 
-/*
- * Transformer class that is responsible for a list of zipkin elements into communication diagram object
- */
 
 import com.google.gson.*;
 import com.jci.master.solution.vizualization.zipkin.*;
@@ -12,6 +9,9 @@ import java.io.*;
 import java.util.*;
 import java.util.stream.*;
 
+/**
+ * Transformer class that is responsible for a list of zipkin elements into communication diagram object
+ */
 @NoArgsConstructor
 public class CommunicationJsonTransformer {
     Gson gson = new Gson();

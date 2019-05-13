@@ -1,8 +1,5 @@
 package com.jci.master.solution.vizualization.ui;
 
-/*
- * Filter class. Represents filtering criteria used when searching for traces.
- */
 
 import lombok.*;
 import org.apache.commons.lang3.time.*;
@@ -10,6 +7,9 @@ import org.springframework.format.annotation.*;
 
 import java.util.*;
 
+/**
+ * Filter class. Represents filtering criteria used when searching for traces.
+ */
 @Data
 public class Filter {
 

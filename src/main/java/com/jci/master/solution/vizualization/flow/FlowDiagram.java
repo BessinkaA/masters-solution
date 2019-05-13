@@ -1,14 +1,14 @@
 package com.jci.master.solution.vizualization.flow;
 
-/*
- * Class representing flow diagram
- */
 
 import com.google.gson.annotations.*;
 import lombok.*;
 
 import java.util.*;
 
+/**
+ * Class representing flow diagram
+ */
 @Data
 public class FlowDiagram {
 

@@ -1,8 +1,5 @@
 package com.jci.master.solution.vizualization.sequence;
 
-/*
- * Transformer class for sequence diagram
- */
 
 import com.google.gson.*;
 import com.jci.master.solution.vizualization.flow.*;
@@ -16,6 +13,9 @@ import java.nio.charset.*;
 import java.util.*;
 import java.util.stream.*;
 
+/**
+ * Transformer class for sequence diagram
+ */
 @NoArgsConstructor
 public class SequenceJsonTransformer {
     Gson gson = new Gson();

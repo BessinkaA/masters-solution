@@ -1,8 +1,5 @@
 package com.jci.master.solution.vizualization.controller;
 
-/*
- * Controller Class that receives all the incoming application REST requests.
- */
 
 import com.jci.master.solution.vizualization.*;
 import com.jci.master.solution.vizualization.communication.*;
@@ -18,6 +15,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.*;
 import java.util.*;
 
+/**
+ * Controller that receives all the incoming application REST requests.
+ */
 @Controller
 @Slf4j
 public class TraceController {
@@ -49,6 +49,7 @@ public class TraceController {
             log.error("Request failed", e);
         }
 
+        // Use tracesView template to render response
         return "tracesView";
     }
 
@@ -75,6 +76,7 @@ public class TraceController {
             log.error("Request failed", e);
         }
 
+        // Use tracesView template to render response
         return "tracesView";
     }
 
@@ -185,6 +187,8 @@ public class TraceController {
     @GetMapping(value = "/trace/all/{traceId}", produces = "text/html")
     public String getAllDiagrams(Model model, @PathVariable("traceId") String traceId) {
         model.addAttribute("traceId", traceId);
+
+        // Use viewAll template to render response
         return "viewAll";
     }
 }

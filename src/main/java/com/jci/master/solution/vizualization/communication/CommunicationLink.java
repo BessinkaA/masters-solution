@@ -1,11 +1,11 @@
 package com.jci.master.solution.vizualization.communication;
 
-/*
- * Class representing communication link in communication diagram.
- */
 
 import lombok.*;
 
+/**
+ * Class representing communication link in communication diagram.
+ */
 @Data
 public class CommunicationLink {
 

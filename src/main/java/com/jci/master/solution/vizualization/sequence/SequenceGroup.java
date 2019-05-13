@@ -1,12 +1,12 @@
 package com.jci.master.solution.vizualization.sequence;
 
-/*
- * Class representing sequence group.
- * Sequence group is used by sequence transformer
- */
 
 import lombok.*;
 
+/**
+ * Class representing sequence group.
+ * Sequence group is used by sequence transformer
+ */
 @Data
 public class SequenceGroup {
 

@@ -1,12 +1,12 @@
 package com.jci.master.solution.vizualization;
 
-/*
- * Entry class of the application
- */
 
 import org.springframework.boot.*;
 import org.springframework.boot.autoconfigure.*;
 
+/*
+ * Entry class of the application
+ */
 @SpringBootApplication
 public class Application {
 

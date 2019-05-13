@@ -1,11 +1,11 @@
 package com.jci.master.solution.vizualization.flow;
 
-/*
- * Class representing links for flow diagram
- */
 
 import lombok.*;
 
+/**
+ * Class representing links for flow diagram
+ */
 @Data
 public class Link {
     private String from;

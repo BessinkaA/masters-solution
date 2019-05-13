@@ -1,8 +1,5 @@
 package com.jci.master.solution.vizualization.sequence;
 
-/*
- * Class representing sequence diagram
- */
 
 import com.google.gson.annotations.*;
 import com.jci.master.solution.vizualization.flow.*;
@@ -10,6 +7,9 @@ import lombok.*;
 
 import java.util.*;
 
+/**
+ * Class representing sequence diagram
+ */
 @Data
 public class SequenceDiagram {
 

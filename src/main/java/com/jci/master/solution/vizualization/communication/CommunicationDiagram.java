@@ -1,13 +1,14 @@
 package com.jci.master.solution.vizualization.communication;
 
-/*
- * Class representing communication diagram
- */
+
 
 import lombok.*;
 
 import java.util.*;
 
+/**
+ * Class representing communication diagram
+ */
 @Data
 public class CommunicationDiagram {
 

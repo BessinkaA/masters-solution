@@ -1,8 +1,5 @@
 package com.jci.master.solution.vizualization.flow;
 
-/*
- * Transformer class responsible for transformation of zipkin elements to a string representing flow diagram
- */
 
 import com.google.gson.*;
 import com.jci.master.solution.vizualization.zipkin.*;
@@ -12,6 +9,9 @@ import java.io.*;
 import java.util.*;
 import java.util.stream.*;
 
+/**
+ * Transformer class responsible for transformation of zipkin elements to a string representing flow diagram
+ */
 @NoArgsConstructor
 public class FlowJsonTransformer {
     Gson gson = new Gson();

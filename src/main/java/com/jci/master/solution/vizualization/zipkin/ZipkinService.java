@@ -1,8 +1,5 @@
 package com.jci.master.solution.vizualization.zipkin;
 
-/*
- * Service class responsible for interactions with Zipkin server
- */
 
 import com.jci.master.solution.vizualization.ui.*;
 import lombok.extern.slf4j.*;
@@ -15,6 +12,9 @@ import java.util.stream.*;
 
 import static java.util.stream.Collectors.*;
 
+/**
+ * Service class responsible for interactions with Zipkin server
+ */
 @Service
 @Slf4j
 public class ZipkinService {
@@ -72,7 +72,7 @@ public class ZipkinService {
     }
 
     /**
-     * Method to convert a list of Zipkin elemnts into a trace
+     * Method to convert a list of Zipkin elements into a trace
      *
      * @param e
      *         Zipkin element
@@ -91,6 +91,7 @@ public class ZipkinService {
                                       .sorted()
                                       .collect(toList());
 
+        // Populate services. If list is too long, provide short & full descriptions
         trace.setServices(StringUtils.join(services, ", "));
         if (services.size() > 1) {
             trace.setServicesShort(services.get(0));
