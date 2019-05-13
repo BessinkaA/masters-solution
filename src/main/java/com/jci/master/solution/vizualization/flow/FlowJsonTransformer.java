@@ -1,6 +1,11 @@
-package com.jci.master.solution.vizualization;
+package com.jci.master.solution.vizualization.flow;
+
+/*
+ * Transformer class responsible for transformation of zipkin elements to a string representing flow diagram
+ */
 
 import com.google.gson.*;
+import com.jci.master.solution.vizualization.*;
 import com.jci.master.solution.vizualization.zipkin.*;
 import lombok.*;
 
@@ -12,19 +17,34 @@ import java.util.stream.*;
 public class FlowJsonTransformer {
     Gson gson = new Gson();
 
+    /**
+     * Method to transform a list of zipkin elements into a string representing flow diagram
+     *
+     * @param zipkinOutput
+     *         list of Zipkin elements
+     *
+     * @return string representing flow diagram
+     *
+     * @throws IOException
+     *         exception
+     */
     public String transform(ZipkinElement[] zipkinOutput) throws IOException {
+
+        // get names of the services in the trace
         List<String> serviceNames = Stream.of(zipkinOutput)
                                           .sorted(Comparator.comparing(ZipkinElement::getTimestamp))
                                           .map(x -> x.getLocalEndpoint().getServiceName())
                                           .distinct()
                                           .collect(Collectors.toList());
 
+        // sort zipkin elements by timestamp
         List<ZipkinElement> zipkinElementsByTimestamp = Stream.of(zipkinOutput)
                                                               .sorted(Comparator.comparing(ZipkinElement::getTimestamp))
                                                               .collect(Collectors.toList());
 
         FlowDiagram flowDiagram = new FlowDiagram();
 
+        // create flow groups
         for (String serviceName : serviceNames) {
             FlowGroup flowGroup = new FlowGroup();
             flowGroup.setKey(serviceName);
@@ -33,6 +53,7 @@ public class FlowJsonTransformer {
             flowDiagram.getNodeDataArray().add(flowGroup);
         }
 
+        // make connections between clients and servers and link them
         for (int i = 0; i < zipkinElementsByTimestamp.size(); i++) {
             ZipkinElement element = zipkinElementsByTimestamp.get(i);
 

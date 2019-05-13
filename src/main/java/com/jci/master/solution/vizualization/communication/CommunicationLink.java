@@ -1,4 +1,4 @@
-package com.jci.master.solution.vizualization;
+package com.jci.master.solution.vizualization.communication;
 
 /*
  * Class representing communication link in communication diagram.

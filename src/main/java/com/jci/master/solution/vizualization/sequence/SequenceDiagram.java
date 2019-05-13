@@ -1,18 +1,16 @@
-package com.jci.master.solution.vizualization;
+package com.jci.master.solution.vizualization.sequence;
 
 import com.google.gson.annotations.*;
+import com.jci.master.solution.vizualization.*;
 import lombok.*;
 
 import java.util.*;
 
 @Data
-public class FlowDiagram {
+public class SequenceDiagram {
 
     @SerializedName("class")
     private String className = "go.GraphLinksModel";
-    private boolean copiesArrays = true;
-    private boolean copiesArrayObjects = true;
-    private ArrayList<FlowGroup> nodeDataArray = new ArrayList<>();
+    private ArrayList<Object> nodeDataArray = new ArrayList<>();
     private ArrayList<Link> linkDataArray = new ArrayList<>();
-
 }

@@ -1,4 +1,4 @@
-package com.jci.master.solution.vizualization;
+package com.jci.master.solution.vizualization.communication;
 
 /*
  * Transformer class that is responsible for a list of zipkin elements into communication diagram object

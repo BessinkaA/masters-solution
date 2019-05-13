@@ -5,6 +5,9 @@ package com.jci.master.solution.vizualization.controller;
  */
 
 import com.jci.master.solution.vizualization.*;
+import com.jci.master.solution.vizualization.communication.*;
+import com.jci.master.solution.vizualization.flow.*;
+import com.jci.master.solution.vizualization.sequence.*;
 import com.jci.master.solution.vizualization.ui.*;
 import com.jci.master.solution.vizualization.zipkin.*;
 import lombok.extern.slf4j.*;

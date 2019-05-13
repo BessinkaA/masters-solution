@@ -1,4 +1,4 @@
-package com.jci.master.solution.vizualization;
+package com.jci.master.solution.vizualization.sequence;
 
 import lombok.*;
 

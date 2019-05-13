@@ -1,4 +1,9 @@
-package com.jci.master.solution.vizualization;
+package com.jci.master.solution.vizualization.flow;
+
+/*
+ * Class representing flow group.
+ * Flow group is a part of flow diagram.
+ */
 
 import lombok.*;
 
