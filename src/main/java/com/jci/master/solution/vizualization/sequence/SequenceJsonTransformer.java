@@ -1,5 +1,9 @@
 package com.jci.master.solution.vizualization.sequence;
 
+/*
+ * Transformer class for sequence diagram
+ */
+
 import com.google.gson.*;
 import com.jci.master.solution.vizualization.*;
 import com.jci.master.solution.vizualization.zipkin.*;
@@ -26,13 +30,22 @@ public class SequenceJsonTransformer {
         return transform(zipkinOutput);
     }
 
+    /**
+     * Method to transform a list of Zipkin elements to a string representing sequence diagram
+     *
+     * @param zipkinOutput list of Zipkin elements
+     * @return string representing sequence diagram
+     * @throws IOException exception
+     */
     public String transform(ZipkinElement[] zipkinOutput) throws IOException {
+        // getting service names from the list of Zipkin elements
         List<String> serviceNames = Stream.of(zipkinOutput)
                                           .sorted(Comparator.comparing(ZipkinElement::getTimestamp))
                                           .map(x -> x.getLocalEndpoint().getServiceName())
                                           .distinct()
                                           .collect(Collectors.toList());
 
+        // sorting zipkin elements by timestamp
         List<ZipkinElement> zipkinElementsByTimestamp = Stream.of(zipkinOutput)
                                                               .sorted(Comparator.comparing(ZipkinElement::getTimestamp))
                                                               .collect(Collectors.toList());
@@ -41,6 +54,7 @@ public class SequenceJsonTransformer {
 
         int time = processData(zipkinElementsByTimestamp, sequenceDiagram);
 
+        // create sequence groups
         for (int i = 0; i < serviceNames.size(); i++) {
             String serviceName = serviceNames.get(i);
             SequenceGroup sequenceGroup = new SequenceGroup();
@@ -61,6 +75,14 @@ public class SequenceJsonTransformer {
         return gson.toJson(sequenceDiagram);
     }
 
+    /**
+     * Entry method to start recursive population of sequence diagram calls
+     *
+     * @param zipkinElementsByTimestamp list of zipkin elements by timestamp
+     * @param sequenceDiagram sequence diagram
+     *
+     * @return duration of the root call
+     */
     private int processData(List<ZipkinElement> zipkinElementsByTimestamp, SequenceDiagram sequenceDiagram) {
 
         // find the first element of a trace (root element)
@@ -72,6 +94,15 @@ public class SequenceJsonTransformer {
         return processElement(zipkinElementsByTimestamp, rootElement, 0, sequenceDiagram);
     }
 
+    /**
+     * Method to 
+     *
+     * @param zipkinElementsByTimestamp list of zipkin elements sorted by timestamp
+     * @param element zipkin element
+     * @param time time
+     * @param sequenceDiagram sequence diagram
+     * @return
+     */
     private int processElement(List<ZipkinElement> zipkinElementsByTimestamp, ZipkinElement element, int time, SequenceDiagram sequenceDiagram) {
         // find if this element has any child elements
         List<ZipkinElement> childElements = zipkinElementsByTimestamp.stream()
@@ -111,6 +142,18 @@ public class SequenceJsonTransformer {
         return time;
     }
 
+    /**
+     * Method to add server to client link
+     *
+     * @param clientElement
+     *         Zipkin client element
+     * @param serverElement
+     *         Zipkin server element
+     * @param sequenceDiagram
+     *         sequence diagram
+     * @param time
+     *         time
+     */
     private void addServerToClientLink(ZipkinElement clientElement, ZipkinElement serverElement, SequenceDiagram sequenceDiagram, int time) {
 
         if (clientElement != null) {
@@ -124,6 +167,18 @@ public class SequenceJsonTransformer {
 
     }
 
+    /**
+     * Method to add client to server link
+     *
+     * @param clientElement
+     *         Zipkin client element
+     * @param serverElement
+     *         Zipkin server element
+     * @param sequenceDiagram
+     *         sequence diagram
+     * @param time
+     *         time
+     */
     public void addClientToServerLink(ZipkinElement clientElement, ZipkinElement serverElement, SequenceDiagram sequenceDiagram, int time) {
 
         if (clientElement != null) {
