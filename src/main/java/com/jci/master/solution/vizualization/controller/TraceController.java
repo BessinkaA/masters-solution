@@ -1,10 +1,13 @@
 package com.jci.master.solution.vizualization.controller;
 
+/*
+ * Controller Class that receives all the incoming application REST requests.
+ */
+
 import com.jci.master.solution.vizualization.*;
 import com.jci.master.solution.vizualization.ui.*;
 import com.jci.master.solution.vizualization.zipkin.*;
 import lombok.extern.slf4j.*;
-import org.apache.commons.io.*;
 import org.springframework.stereotype.*;
 import org.springframework.ui.*;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +22,14 @@ public class TraceController {
     @Resource
     ZipkinService zipkinService;
 
+    /**
+     * Method that receive GET request to display traces
+     *
+     * @param model
+     *         Model model
+     *
+     * @return traces view
+     */
     @GetMapping(value = "/traces")
     public String getTraces(Model model) {
         log.info("Getting all traces...");
@@ -38,6 +49,16 @@ public class TraceController {
         return "tracesView";
     }
 
+    /**
+     * Method that receives POST requests to get traces by criteria
+     *
+     * @param model
+     *         Model model
+     * @param filter
+     *         Filter filter
+     *
+     * @return traces view
+     */
     @PostMapping(value = "/traces")
     public String findTraces(Model model, @ModelAttribute Filter filter) {
         log.info("Getting all traces...");
@@ -45,7 +66,7 @@ public class TraceController {
         try {
             List<Trace> traces = zipkinService.getTraces(filter);
             log.info("Traces: {}", traces);
-            model.addAttribute("filter",filter);
+            model.addAttribute("filter", filter);
             model.addAttribute("traces", traces);
         } catch (Exception e) {
             log.error("Request failed", e);
@@ -55,6 +76,17 @@ public class TraceController {
     }
 
 
+    /**
+     * Method to GET a sequence diagram for the selected trace.
+     *
+     * @param traceId
+     *         ID of the trace
+     *
+     * @return String representing sequence diagram
+     *
+     * @throws Exception
+     *         exception
+     */
     @ResponseBody
     @GetMapping(value = "/trace/sequence/{traceId}", produces = "text/html")
     public String getSequenceDiagram(@PathVariable("traceId") String traceId) throws Exception {
@@ -75,6 +107,17 @@ public class TraceController {
         }
     }
 
+    /**
+     * Method to GET a flow diagram for the selected trace.
+     *
+     * @param traceId
+     *         ID of the trace
+     *
+     * @return String representing flow diagram
+     *
+     * @throws Exception
+     *         exception
+     */
     @ResponseBody
     @GetMapping(value = "/trace/flow/{traceId}", produces = "text/html")
     public String getFlowDiagram(@PathVariable("traceId") String traceId) throws Exception {
@@ -95,6 +138,17 @@ public class TraceController {
         }
     }
 
+    /**
+     * Method to GET a communication diagram for the selected trace.
+     *
+     * @param traceId
+     *         ID of the trace
+     *
+     * @return String representing communication diagram
+     *
+     * @throws Exception
+     *         exception
+     */
     @ResponseBody
     @GetMapping(value = "/trace/communication/{traceId}", produces = "text/html")
     public String getCommunicationDiagram(@PathVariable("traceId") String traceId) throws Exception {
@@ -115,6 +169,16 @@ public class TraceController {
         }
     }
 
+    /**
+     * Method to display all 3 diagrams in one page
+     *
+     * @param model
+     *         Model model
+     * @param traceId
+     *         ID of the trace
+     *
+     * @return A  view for all traces
+     */
     @GetMapping(value = "/trace/all/{traceId}", produces = "text/html")
     public String getAllDiagrams(Model model, @PathVariable("traceId") String traceId) {
         model.addAttribute("traceId", traceId);
