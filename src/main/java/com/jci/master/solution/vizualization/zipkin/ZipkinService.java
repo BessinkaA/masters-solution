@@ -1,5 +1,9 @@
 package com.jci.master.solution.vizualization.zipkin;
 
+/*
+ * Service class responsible for interactions with Zipkin server
+ */
+
 import com.jci.master.solution.vizualization.ui.*;
 import lombok.extern.slf4j.*;
 import org.apache.commons.lang3.*;
@@ -9,7 +13,7 @@ import org.springframework.web.client.*;
 import java.util.*;
 import java.util.stream.*;
 
-import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.*;
 
 @Service
 @Slf4j
@@ -17,11 +21,27 @@ public class ZipkinService {
 
     RestTemplate restTemplate = new RestTemplate();
 
+    /**
+     * Method to get trace by ID from Zipkin server
+     *
+     * @param traceId
+     *         ID of the trace
+     *
+     * @return a list of Zipkin elements that represent the trace
+     */
     public ZipkinElement[] getTraceById(String traceId) {
         String url = "http://localhost:9411/api/v2/trace/" + traceId;
         return restTemplate.getForObject(url, ZipkinElement[].class);
     }
 
+    /**
+     * Method to get traces from Zipkin server by criteria
+     *
+     * @param filter
+     *         Filter filter
+     *
+     * @return list of traces
+     */
     public List<Trace> getTraces(Filter filter) {
         String url = "http://localhost:9411/api/v2/traces?limit=10";
         if (StringUtils.isNotBlank(filter.getService())) {
@@ -38,7 +58,7 @@ public class ZipkinService {
         }
 
         Comparator<Trace> comparator = Comparator.comparing(Trace::getTimestamp);
-        if(!filter.isAscOrder()) {
+        if (!filter.isAscOrder()) {
             comparator = comparator.reversed();
         }
 
@@ -51,22 +71,31 @@ public class ZipkinService {
                      .collect(toList());
     }
 
+    /**
+     * Method to convert a list of Zipkin elemnts into a trace
+     *
+     * @param e
+     *         Zipkin element
+     *
+     * @return trace
+     */
     protected Trace toTrace(ZipkinElement[] e) {
         Trace trace = new Trace();
         trace.setTraceId(e[0].getTraceId());
         trace.setTimestamp(e[0].getTimestamp());
 
         List<String> services = Stream.of(e)
-                .map(el -> el.getLocalEndpoint() == null ? "" : el.getLocalEndpoint().getServiceName())
-                .distinct()
-                .sorted()
-                .collect(toList());
+                                      .map(el -> el.getLocalEndpoint() == null ? "" : el.getLocalEndpoint()
+                                                                                        .getServiceName())
+                                      .distinct()
+                                      .sorted()
+                                      .collect(toList());
 
         trace.setServices(StringUtils.join(services, ", "));
-        if(services.size() > 1) {
+        if (services.size() > 1) {
             trace.setServicesShort(services.get(0));
             trace.setExpandServices(true);
-            trace.setServicesLink("+ " + (services.size()-1) + " more");
+            trace.setServicesLink("+ " + (services.size() - 1) + " more");
         } else {
             trace.setServicesShort(trace.getServices());
             trace.setExpandServices(false);
