@@ -9,7 +9,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 
 /**
- *
+ * Error controller class responsible for displaying errors if they occur during REST calls
  */
 @Slf4j
 @Controller

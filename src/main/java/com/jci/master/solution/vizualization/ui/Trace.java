@@ -1,6 +1,9 @@
 package com.jci.master.solution.vizualization.ui;
 
-import com.jci.master.solution.vizualization.zipkin.*;
+/*
+ * Trace class representing the trace and it's attributes.
+ */
+
 import lombok.*;
 
 import java.util.*;
